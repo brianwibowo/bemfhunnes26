@@ -1,0 +1,11 @@
+.git
+.gitignore
+**/node_modules
+**/dist
+**/.angular
+backend/.env
+backend/data
+backend/public/uploads
+*.sqlite*
+*.log
+.DS_Store

@@ -1,4 +1,4 @@
-<div class="page-bg"><header class="site-header container"><a class="brand" routerLink="/beranda" (click)="closeMenu()" aria-label="BEM FH UNNES 2026">
+<div class="page-bg"><header class="site-header container" [class.scrolled]="scrolled()"><a class="brand" routerLink="/beranda" (click)="closeMenu()" aria-label="BEM FH UNNES 2026">
   <span class="brand-mark"><span class="brand-flame">✦</span></span><span class="brand-copy"><strong>BEM FH UNNES <em>2026</em></strong><small>KABINET LAKSANA ADHIKARA</small></span>
 </a><button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()" aria-label="Buka navigasi"><span></span><span></span><span></span></button>
 <nav [class.open]="menuOpen()" aria-label="Navigasi utama"><a *ngFor="let item of nav" [routerLink]="item.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">{{item.label}}</a></nav></header>

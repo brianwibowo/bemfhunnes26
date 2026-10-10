@@ -4,10 +4,11 @@ import { map, Observable } from 'rxjs';
 import { PageIntroComponent } from '../../shared/page-intro.component';
 import { ContentCardComponent } from '../../shared/content-card.component';
 import { PaginationComponent } from '../../shared/pagination.component';
+import { ScrollRevealDirective } from '../../shared/scroll-reveal.directive';
 import { ContentService } from '../../core/content.service';
 import { Article, ArticlePage, ContentCard } from '../../core/content.models';
 
-@Component({selector:'app-student-page', standalone:true, imports:[CommonModule,PageIntroComponent,ContentCardComponent,PaginationComponent], templateUrl:'./student-page.component.html', styleUrl:'./student-page.component.css'})
+@Component({selector:'app-student-page', standalone:true, imports:[CommonModule,PageIntroComponent,ContentCardComponent,PaginationComponent,ScrollRevealDirective], templateUrl:'./student-page.component.html', styleUrl:'./student-page.component.css'})
 export class StudentPageComponent {
   private readonly content=inject(ContentService);
   readonly fallback:ContentCard[]=[{title:'Advocare',description:'Informasi dan berita terbaru seputar kegiatan BEM FH UNNES Kabinet Laksana Adhikara.',action:'Contact Person Advocare',icon:'⚖'},{title:'Ruang Beasiswa',description:'Temukan beasiswa dan kesempatan pengembangan diri yang bisa kamu ikuti.',action:'Lihat peluang',icon:'✦'},{title:'Konseling Sebaya',description:'Ruang aman untuk berbagi, bertanya, dan menemukan dukungan bersama.',action:'Hubungi kami',icon:'◌'},{title:'Kajian Hukum',description:'Forum diskusi isu hukum yang dekat dengan kehidupan mahasiswa.',action:'Baca selengkapnya',icon:'◈'},{title:'Advokasi Akademik',description:'Pendampingan bagi mahasiswa dalam menyampaikan kebutuhan akademiknya.',action:'Pelajari layanan',icon:'↗'},{title:'Pengabdian',description:'Gerak bersama untuk memberi manfaat bagi kampus dan masyarakat.',action:'Ikut bergerak',icon:'✧'}];

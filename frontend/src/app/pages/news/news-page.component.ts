@@ -4,10 +4,11 @@ import { map, Observable } from 'rxjs';
 import { PageIntroComponent } from '../../shared/page-intro.component';
 import { NewsCardComponent } from '../../shared/news-card.component';
 import { PaginationComponent } from '../../shared/pagination.component';
+import { ScrollRevealDirective } from '../../shared/scroll-reveal.directive';
 import { ContentService } from '../../core/content.service';
 import { Article, ArticlePage, NewsItem } from '../../core/content.models';
 
-@Component({selector:'app-news-page',standalone:true,imports:[CommonModule,PageIntroComponent,NewsCardComponent,PaginationComponent],templateUrl:'./news-page.component.html',styleUrl:'./news-page.component.css'})
+@Component({selector:'app-news-page',standalone:true,imports:[CommonModule,PageIntroComponent,NewsCardComponent,PaginationComponent,ScrollRevealDirective],templateUrl:'./news-page.component.html',styleUrl:'./news-page.component.css'})
 export class NewsPageComponent {
   private readonly content=inject(ContentService);
   readonly fallback:NewsItem[]=[{title:'Kabinet Laksana Adhikara resmi melangkah bersama',excerpt:'Mengenal arah gerak dan semangat yang akan menemani satu tahun kepengurusan.',category:'Kegiatan',date:'12 Jan 2026'},{title:'Ruang kajian: hukum yang dekat dengan kita',excerpt:'Catatan dan agenda diskusi dari ruang belajar BEM FH UNNES.',category:'Kajian',date:'08 Jan 2026'},{title:'Peluang beasiswa dan magang bulan ini',excerpt:'Daftar peluang yang bisa kamu siapkan mulai sekarang.',category:'Peluang',date:'04 Jan 2026'}];

@@ -4,10 +4,11 @@ import { map, Observable } from 'rxjs';
 import { PageIntroComponent } from '../../shared/page-intro.component';
 import { ContentCardComponent } from '../../shared/content-card.component';
 import { PaginationComponent } from '../../shared/pagination.component';
+import { ScrollRevealDirective } from '../../shared/scroll-reveal.directive';
 import { ContentService } from '../../core/content.service';
 import { Article, ArticlePage, ContentCard } from '../../core/content.models';
 
-@Component({selector:'app-external-page',standalone:true,imports:[CommonModule,PageIntroComponent,ContentCardComponent,PaginationComponent],templateUrl:'./external-page.component.html',styleUrl:'./external-page.component.css'})
+@Component({selector:'app-external-page',standalone:true,imports:[CommonModule,PageIntroComponent,ContentCardComponent,PaginationComponent,ScrollRevealDirective],templateUrl:'./external-page.component.html',styleUrl:'./external-page.component.css'})
 export class ExternalPageComponent {
   private readonly content=inject(ContentService);
   readonly fallback:ContentCard[]=[{title:'Media Partner',description:'Jalani kerja sama media partner dengan BEM FH UNNES.',action:'SOP media partner',icon:'↗'},{title:'Info Loker & Magang',description:'Temukan peluang kerja dan magang untuk menyiapkan langkah setelah kampus.',action:'Lihat peluang',icon:'⌁'},{title:'Kolaborasi Organisasi',description:'Bangun program bersama dan perluas dampak gerakan mahasiswa.',action:'Hubungi kami',icon:'◎'}];
