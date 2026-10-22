@@ -1,6 +1,6 @@
 import type { Article, ArticlePage, ArticleSection, ArticleStatus, User } from './types';
 
-export const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080').replace(/\/$/, '');
+export const API_URL = (process.env.NEXT_PUBLIC_API_URL || '').replace(/\/$/, '');
 export async function api<T>(path:string, init?:RequestInit):Promise<T>{
   const headers = new Headers(init?.headers); if (!(init?.body instanceof FormData)) headers.set('Content-Type','application/json');
   if (typeof window !== 'undefined') { const token=localStorage.getItem('bemfh_token'); if(token) headers.set('Authorization',`Bearer ${token}`); }

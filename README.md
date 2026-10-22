@@ -22,6 +22,6 @@ Buka `http://localhost:3000`. Atur `NEXT_PUBLIC_API_URL=http://localhost:8080` d
 
 ## Deploy
 
-Frontend dideploy ke Vercel dari folder `frontend-next`. Set `NEXT_PUBLIC_API_URL` ke alamat API publik, misalnya `https://api-bemfhunnes26.duckdns.org`.
+Frontend dideploy ke `https://bemfhunnes26.vercel.app` dari folder `frontend-next`. Set `NEXT_PUBLIC_API_URL=https://api-bemfhunnes26.duckdns.org`.
 
 Backend dideploy ke VPS menggunakan `docker-compose.vps.yml`. Panduan lengkap ada di [DEPLOY.md](./DEPLOY.md).

@@ -2,7 +2,7 @@
 
 ## 1. DNS
 
-Pertahankan domain frontend `bemfhunnes26.duckdns.org` untuk Vercel. Tambahkan record A untuk `api-bemfhunnes26.duckdns.org` ke IP VPS `139.190.100.249`.
+Frontend production menggunakan `https://bemfhunnes26.vercel.app`. Tambahkan record A untuk `api-bemfhunnes26.duckdns.org` ke IP VPS `139.190.100.249`.
 
 Di Vercel, import repository ini dan pilih **Root Directory** `frontend-next`. Set:
 
@@ -10,7 +10,7 @@ Di Vercel, import repository ini dan pilih **Root Directory** `frontend-next`. S
 NEXT_PUBLIC_API_URL=https://api-bemfhunnes26.duckdns.org
 ```
 
-Setelah deploy, masukkan URL Vercel final ke `CORS_ORIGINS` di VPS.
+`CORS_ORIGINS` di VPS harus berisi `https://bemfhunnes26.vercel.app`. Jangan gunakan URL API HTTP atau alamat IP langsung dari browser karena akan melewati HTTPS dan berisiko diblokir sebagai mixed content.
 
 ## 2. VPS Spring Boot
 
@@ -32,7 +32,7 @@ docker compose -f docker-compose.vps.yml ps
 docker compose -f docker-compose.vps.yml logs -f --tail=100 api caddy
 ```
 
-API akan tersedia di `https://api-bemfhunnes26.duckdns.org`. Endpoint pemeriksaan kesehatan: `/api/health`.
+API akan tersedia di `https://api-bemfhunnes26.duckdns.org`. Caddy menerbitkan dan memperbarui sertifikat HTTPS otomatis setelah DNS mengarah ke VPS. Endpoint pemeriksaan kesehatan: `/api/health`.
 
 ## 3. Backup
 
