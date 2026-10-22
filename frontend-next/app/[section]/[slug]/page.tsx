@@ -1,0 +1,1 @@
+import SiteShell from '../../../components/SiteShell'; import ArticleDetail from '../../../components/ArticleDetail'; export default async function Page({params}:{params:Promise<{section:string;slug:string}>}){const p=await params;return <SiteShell><ArticleDetail section={p.section} slug={p.slug}/></SiteShell>}

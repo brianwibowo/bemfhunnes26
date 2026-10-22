@@ -1,0 +1,2 @@
+import Link from 'next/link'; import type { Article } from '../lib/types';
+export function ArticleCards({articles}:{articles:Article[]}){return <div className="grid grid-3">{articles.map(a=><article className="surface card" key={a.id}><div className="icon-box">✦</div><div className="eyebrow">{a.section}</div><h3>{a.title}</h3><p>{a.description}</p><Link className="btn btn-ghost" href={`/${a.section}/${a.slug}`}>Baca selengkapnya -&gt;</Link></article>)}</div>}

@@ -1,0 +1,1 @@
+import SiteShell from '../../components/SiteShell'; import PublicSection from '../../components/PublicSection'; export default function Page(){return <SiteShell><PublicSection section="eksternal"/></SiteShell>}

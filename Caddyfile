@@ -1,15 +1,4 @@
-bemfhunnes26.duckdns.org {
+api-bemfhunnes26.duckdns.org {
   encode gzip zstd
-
-  handle /api/* {
-    reverse_proxy api:3000
-  }
-
-  handle /uploads/* {
-    reverse_proxy api:3000
-  }
-
-  handle {
-    reverse_proxy web:80
-  }
+  reverse_proxy api:8080
 }

@@ -1,32 +1,27 @@
 # BEM FH UNNES 2026
 
-## Menjalankan aplikasi
+Portal BEM FH UNNES 2026 menggunakan dua aplikasi:
 
-Buka dua terminal.
+- `frontend-next/`: Next.js App Router untuk Vercel.
+- `backend-spring/`: Spring Boot API dengan SQLite untuk VPS.
 
-Terminal backend:
+## Menjalankan lokal
 
 ```bash
-cd backend
+cd backend-spring
 cp .env.example .env
+mvn spring-boot:run
+
+cd ../frontend-next
+cp .env.example .env.local
 npm install
-npm start
+npm run dev
 ```
 
-Terminal frontend:
+Buka `http://localhost:3000`. Atur `NEXT_PUBLIC_API_URL=http://localhost:8080` di `.env.local`.
 
-```bash
-cd frontend
-npm install
-npm start
-```
+## Deploy
 
-Buka `http://localhost:4200`. Frontend meneruskan `/api` dan `/uploads` ke API `http://localhost:3000` melalui `proxy.conf.json`.
+Frontend dideploy ke Vercel dari folder `frontend-next`. Set `NEXT_PUBLIC_API_URL` ke alamat API publik, misalnya `https://api-bemfhunnes26.duckdns.org`.
 
-Database SQLite dibuat otomatis di `backend/data/bemfh.sqlite`. Akun admin dibuat saat server pertama kali berjalan berdasarkan `.env`. Ganti password contoh sebelum digunakan bersama orang lain atau dideploy.
-
-Panel admin tersedia di `http://localhost:4200/admin/login`. Akun admin dapat membuat artikel, menyimpan sebagai pending, publish, menonaktifkan artikel, mengunggah gambar, dan melihat preview. Server mengubah gambar menjadi WebP dengan lebar maksimum 1600px dan kualitas 78 untuk menjaga waktu muat.
-
-## Deploy Docker ke VPS
-
-Konfigurasi produksi tersedia di [DEPLOY.md](./DEPLOY.md). Compose menjalankan API, Angular/Nginx, dan Caddy sebagai reverse proxy HTTPS. Caddy memakai domain `bemfhunnes26.duckdns.org`; pastikan DNS domain mengarah ke `139.190.100.249` dan port 80/443 terbuka.
+Backend dideploy ke VPS menggunakan `docker-compose.vps.yml`. Panduan lengkap ada di [DEPLOY.md](./DEPLOY.md).

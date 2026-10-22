@@ -1,0 +1,1 @@
+import AdminArticleEditor from '../../../../components/AdminArticleEditor'; import type { ArticleSection } from '../../../../lib/types'; export default async function Page({params}:{params:Promise<{section:string}>}){const p=await params;return <AdminArticleEditor section={p.section as ArticleSection}/>}

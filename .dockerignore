@@ -1,11 +1,13 @@
 .git
 .gitignore
 **/node_modules
+**/.next
+**/target
 **/dist
 **/.angular
-backend/.env
-backend/data
-backend/public/uploads
+**/.env
+**/data
+**/uploads
 *.sqlite*
 *.log
 .DS_Store

@@ -1,67 +1,40 @@
-# Deploy ke VPS Ubuntu dengan Docker
+# Deploy Next.js ke Vercel dan Spring Boot ke VPS
 
-Target domain: `bemfhunnes26.duckdns.org`  
-Target IP: `139.190.100.249`
+## 1. DNS
 
-## Informasi yang perlu disiapkan
+Pertahankan domain frontend `bemfhunnes26.duckdns.org` untuk Vercel. Tambahkan record A untuk `api-bemfhunnes26.duckdns.org` ke IP VPS `139.190.100.249`.
 
-- Alamat SSH, username deploy, port SSH, dan akses `sudo`. Kirim public key SSH, bukan password atau private key.
-- Versi Ubuntu dan arsitektur VPS (`amd64` atau `arm64`).
-- RAM, jumlah vCPU, dan kapasitas disk. Untuk aplikasi ini, 1 vCPU, 1 GB RAM, dan 10 GB disk cukup untuk mulai.
-- Pastikan tidak ada service lain yang memakai port `80` dan `443`.
-- Pastikan record DNS `A` `bemfhunnes26.duckdns.org` mengarah ke `139.190.100.249`.
-- Kebijakan backup untuk volume database dan upload.
+Di Vercel, import repository ini dan pilih **Root Directory** `frontend-next`. Set:
 
-## Persiapan DNS
-
-Di DuckDNS, arahkan domain ke `139.190.100.249`. HTTPS Caddy baru bisa terbit setelah DNS publik mengarah benar dan port 80/443 dapat diakses dari internet.
-
-## Instal Docker di VPS
-
-```bash
-sudo apt update
-sudo apt install -y ca-certificates curl git
-curl -fsSL https://get.docker.com | sudo sh
-sudo usermod -aG docker "$USER"
-newgrp docker
-docker compose version
+```text
+NEXT_PUBLIC_API_URL=https://api-bemfhunnes26.duckdns.org
 ```
 
-Jika UFW aktif:
+Setelah deploy, masukkan URL Vercel final ke `CORS_ORIGINS` di VPS.
+
+## 2. VPS Spring Boot
 
 ```bash
-sudo ufw allow OpenSSH
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw enable
-```
-
-## Jalankan aplikasi
-
-```bash
-git clone https://github.com/brianwibowo/bemfhunnes26.git bemfhunnes26
+git clone https://github.com/brianwibowo/bemfhunnes26.git
 cd bemfhunnes26
-cp backend/.env.example backend/.env
-nano backend/.env
+cp backend-spring/.env.example backend-spring/.env
+nano backend-spring/.env
 ```
 
-Ganti `JWT_SECRET`, `ADMIN_PASSWORD`, dan `SUPERADMIN_PASSWORD` dengan nilai acak yang kuat. Jangan commit file `.env`.
+Isi `JWT_SECRET`, `ADMIN_PASSWORD`, `SUPERADMIN_PASSWORD`, dan `CORS_ORIGINS` dengan nilai production. Jangan commit `.env`.
+
+Jalankan API dan HTTPS reverse proxy:
 
 ```bash
-docker compose build
-docker compose up -d
-docker compose ps
-docker compose logs -f --tail=100 caddy api
+docker compose -f docker-compose.vps.yml build
+docker compose -f docker-compose.vps.yml up -d
+docker compose -f docker-compose.vps.yml ps
+docker compose -f docker-compose.vps.yml logs -f --tail=100 api caddy
 ```
 
-Setelah DNS dan sertifikat siap, akses:
+API akan tersedia di `https://api-bemfhunnes26.duckdns.org`. Endpoint pemeriksaan kesehatan: `/api/health`.
 
-- `https://bemfhunnes26.duckdns.org`
-- `https://bemfhunnes26.duckdns.org/admin/login`
-
-## Backup
-
-Database dan upload disimpan di named volume Docker. Buat backup berkala:
+## 3. Backup
 
 ```bash
 mkdir -p backups
@@ -69,10 +42,10 @@ docker run --rm -v bemfhunnes26_bemfh_data:/source -v "$PWD/backups":/backup alp
 docker run --rm -v bemfhunnes26_bemfh_uploads:/source -v "$PWD/backups":/backup alpine tar czf /backup/bemfh-uploads-$(date +%F).tgz -C /source .
 ```
 
-Update aplikasi:
+## Update
 
 ```bash
 git pull
-docker compose build
-docker compose up -d
+docker compose -f docker-compose.vps.yml build
+docker compose -f docker-compose.vps.yml up -d
 ```

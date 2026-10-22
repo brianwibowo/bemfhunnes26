@@ -1,0 +1,3 @@
+package id.unnes.bemfhunnes.config;
+import org.springframework.context.annotation.Configuration; import org.springframework.web.servlet.config.annotation.*; import java.nio.file.Paths;
+@Configuration public class WebConfig implements WebMvcConfigurer { private final AppProperties props; public WebConfig(AppProperties p){props=p;} @Override public void addCorsMappings(CorsRegistry r){r.addMapping("/api/**").allowedOrigins(props.origins().toArray(String[]::new)).allowedMethods("GET","POST","PATCH","OPTIONS").allowedHeaders("*");} @Override public void addResourceHandlers(ResourceHandlerRegistry r){r.addResourceHandler("/uploads/**").addResourceLocations(Paths.get(props.getUploadDir()).toAbsolutePath().toUri().toString());}}

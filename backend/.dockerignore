@@ -1,8 +1,0 @@
-node_modules
-npm-debug.log*
-.env
-data
-public/uploads
-*.sqlite*
-*.log
-.DS_Store

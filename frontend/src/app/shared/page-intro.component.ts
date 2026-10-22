@@ -1,3 +1,0 @@
-import { Component, input } from '@angular/core';
-@Component({selector:'app-page-intro', standalone:true, template:'<section class="page-intro container"><span class="eyebrow">{{eyebrow()}}</span><h1>{{title()}}</h1><p>{{description()}}</p></section>', styles:[`.page-intro{padding-top:96px}.page-intro h1{font:600 clamp(2.6rem,6vw,5.8rem)/.95 'Space Grotesk';letter-spacing:-.06em;max-width:900px;margin:14px 0 18px}.page-intro p{color:var(--muted);max-width:620px;font-size:1.04rem;margin:0}@media(max-width:800px){.page-intro{padding-top:70px}}`]})
-export class PageIntroComponent { eyebrow=input(''); title=input(''); description=input(''); }

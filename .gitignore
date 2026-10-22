@@ -2,7 +2,7 @@
 node_modules/
 **/node_modules/
 
-# Angular
+# Build output
 .angular/
 **/.angular/
 dist/
@@ -19,12 +19,13 @@ dist/
 *.sqlite-journal
 *.sqlite-wal
 *.sqlite-shm
-backend/data/*.sqlite*
-backend/public/uploads/*
-!backend/public/uploads/.gitkeep
+**/data/*.sqlite*
+**/uploads/*
 
 # Logs and OS files
 *.log
 npm-debug.log*
 .DS_Store
 **/.DS_Store
+tmp/
+backend-legacy/

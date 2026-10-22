@@ -1,0 +1,6 @@
+package id.unnes.bemfhunnes.config;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import java.util.Arrays; import java.util.List;
+@ConfigurationProperties(prefix="app")
+public class AppProperties { private String jwtSecret; private String uploadDir; private String corsOrigins; private String adminEmail; private String adminPassword; private String superadminEmail; private String superadminPassword;
+ public String getJwtSecret(){return jwtSecret;} public void setJwtSecret(String v){jwtSecret=v;} public String getUploadDir(){return uploadDir;} public void setUploadDir(String v){uploadDir=v;} public String getCorsOrigins(){return corsOrigins;} public void setCorsOrigins(String v){corsOrigins=v;} public List<String> origins(){return Arrays.stream(corsOrigins.split(",")).map(String::trim).filter(s->!s.isBlank()).toList();} public String getAdminEmail(){return adminEmail;} public void setAdminEmail(String v){adminEmail=v;} public String getAdminPassword(){return adminPassword;} public void setAdminPassword(String v){adminPassword=v;} public String getSuperadminEmail(){return superadminEmail;} public void setSuperadminEmail(String v){superadminEmail=v;} public String getSuperadminPassword(){return superadminPassword;} public void setSuperadminPassword(String v){superadminPassword=v;}}
