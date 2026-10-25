@@ -22,9 +22,11 @@ Plus Jakarta Sans variable Latin dimuat lokal melalui `next/font/local` dari pak
 
 Animasi scroll menggunakan `IntersectionObserver` pada elemen `data-reveal`, dengan variasi masuk dari samping, mask foto, dan stagger untuk elemen sejajar. Entrance hero, respons hover, dan indikator progres melengkapi transisi. Pita identitas mengikuti scroll melalui CSS pada browser yang mendukung; fallback tetap statis. Konten tetap terlihat tanpa JavaScript. Preferensi `prefers-reduced-motion` menonaktifkan gerakan. Carousel memakai native scrolling dan CSS scroll snap, tanpa library animasi tambahan.
 
-Galeri menyediakan tombol Jeda/Putar. Hover dan fokus menahan gerakan sementara; geser manual atau tombol navigasi menjedakannya sampai Putar ditekan. Autoplay juga berhenti ketika galeri keluar layar, tab tersembunyi, atau perangkat meminta reduced motion.
+Galeri bergeser otomatis setiap lima detik tanpa tombol Putar. Geser manual dan tombol navigasi mengulang hitungan otomatis; gerakan berlanjut setelah interaksi selesai. Hover, fokus keyboard, dan sentuhan yang masih ditekan menahan gerakan sementara. Autoplay juga berhenti ketika galeri keluar layar, tab tersembunyi, atau perangkat meminta reduced motion.
 
-Dekorasi merah marun dan emas memakai SVG asli di `GraphicAccent.tsx`, `graphic-accents.css`, dan `inner-graphics.css`, termasuk bentuk lengkung besar, pita, serta panah melingkar. Siluet di galeri bergerak sedikit mengikuti scroll pada browser yang mendukung. `ContextPointer` menampilkan petunjuk pada tautan publik bertanda `data-pointer-label`, hanya untuk mouse desktop tanpa reduced motion. Pointer bawaan tetap terlihat; dekorasi tidak menangkap klik atau dibacakan pembaca layar.
+Favicon memakai logo BEM FH resmi melalui `app/favicon.ico`, `app/icon.png`, dan `app/apple-icon.png`. Logo serta nama kabinet di profil berada dalam satu bidang krem agar tidak menyatu dengan aksen marun di belakangnya.
+
+Dekorasi merah marun dan emas memakai SVG asli di `GraphicAccent.tsx`, `graphic-accents.css`, dan `inner-graphics.css`, termasuk bentuk lengkung besar, pita, serta panah melingkar. Aksen tambahan berada di Ruang Kita, pengantar profil beranda, dan arah gerak profil. Lengkung bergerak ringan mengikuti arah scroll pada browser yang mendukung, dengan tampilan statis untuk reduced motion. `ContextPointer` menampilkan petunjuk pada tautan publik bertanda `data-pointer-label`, hanya untuk mouse desktop tanpa reduced motion. Pointer bawaan tetap terlihat; dekorasi tidak menangkap klik atau dibacakan pembaca layar.
 
 ## Halaman dan pengelolaan
 

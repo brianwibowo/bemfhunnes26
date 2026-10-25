@@ -36,38 +36,6 @@
   padding-bottom: 5px;
   flex-shrink: 0;
 }
-.photo-autoplay {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-width: 101px;
-  min-height: 48px;
-  padding: 0 17px;
-  border: 1px solid #bda18c;
-  border-radius: 99px;
-  background: #fffaf1;
-  color: var(--maroon, #731b2c);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1.5;
-  transition:
-    color 0.25s,
-    background 0.25s,
-    border-color 0.25s;
-}
-.photo-autoplay:not(:disabled):hover {
-  background: var(--maroon, #731b2c);
-  border-color: var(--maroon, #731b2c);
-  color: #fffaf1;
-}
-.photo-autoplay:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-.photo-autoplay > svg {
-  flex: none;
-}
 .photo-arrow {
   display: grid;
   place-items: center;
@@ -615,12 +583,6 @@
     width: 44px;
     height: 44px;
   }
-  .photo-autoplay {
-    min-height: 44px;
-    min-width: 97px;
-    padding-inline: 15px;
-    font-size: 10px;
-  }
   .photo-arrow svg {
     width: 19px;
     height: 19px;
@@ -721,7 +683,6 @@
   .photo-slide-corner,
   .photo-slide-mark,
   .photo-arrow,
-  .photo-autoplay,
   .photo-arrow svg,
   .photo-page-dot:before,
   .motion-picture img,

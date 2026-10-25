@@ -20,29 +20,29 @@ export default function PhotoCarousel() {
   const galleryRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
-  const autoplayButtonRef = useRef<HTMLButtonElement>(null);
   const autoplayTimerRef = useRef<number | null>(null);
   const automaticScrollRef = useRef(false);
+  const lastInteractionRef = useRef(0);
   const pagesRef = useRef<CarouselPage[]>([]);
   const [pages, setPages] = useState<CarouselPage[]>([]);
   const [activePage, setActivePage] = useState(0);
   const [visibleRange, setVisibleRange] = useState({ first: 0, last: 0 });
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(true);
-  const [pausedByUser, setPausedByUser] = useState(false);
+  const [interactionVersion, setInteractionVersion] = useState(0);
+  const [pointerDown, setPointerDown] = useState(false);
   const [reducedMotion, setReducedMotion] = useState<boolean | null>(null);
   const [inView, setInView] = useState(false);
   const [documentVisible, setDocumentVisible] = useState(false);
   const [hoverPaused, setHoverPaused] = useState(false);
   const [focusPaused, setFocusPaused] = useState(false);
-  const autoplayEnabled = !pausedByUser && reducedMotion !== true;
   const canAutoplay =
-    autoplayEnabled &&
     reducedMotion === false &&
     inView &&
     documentVisible &&
     !hoverPaused &&
     !focusPaused &&
+    !pointerDown &&
     pages.length > 1;
 
   useEffect(() => {
@@ -207,13 +207,29 @@ export default function PhotoCarousel() {
   }, []);
 
   const pauseManually = useCallback(() => {
-    setPausedByUser(true);
+    stopAutomaticScroll();
+    const now = performance.now();
+    // Reset the five-second clock without rerendering on every wheel event.
+    if (now - lastInteractionRef.current < 250) return;
+    lastInteractionRef.current = now;
     if (autoplayTimerRef.current !== null) {
       window.clearInterval(autoplayTimerRef.current);
       autoplayTimerRef.current = null;
     }
-    stopAutomaticScroll();
+    setInteractionVersion((version) => version + 1);
   }, [stopAutomaticScroll]);
+
+  useEffect(() => {
+    const release = () => setPointerDown(false);
+    window.addEventListener("pointerup", release, { passive: true });
+    window.addEventListener("pointercancel", release, { passive: true });
+    window.addEventListener("blur", release);
+    return () => {
+      window.removeEventListener("pointerup", release);
+      window.removeEventListener("pointercancel", release);
+      window.removeEventListener("blur", release);
+    };
+  }, []);
 
   const goToPage = useCallback((index: number, automatic = false) => {
     const track = trackRef.current;
@@ -322,53 +338,45 @@ export default function PhotoCarousel() {
       autoplayTimerRef.current = null;
       stopAutomaticScroll();
     };
-  }, [canAutoplay, pages.length, goToPage, stopAutomaticScroll]);
+  }, [
+    canAutoplay,
+    pages.length,
+    interactionVersion,
+    goToPage,
+    stopAutomaticScroll,
+  ]);
 
   function navigateManually(index: number) {
     pauseManually();
     goToPage(index);
   }
 
-  function toggleAutoplay() {
-    if (autoplayEnabled) pauseManually();
-    else {
-      setPausedByUser(false);
-      setFocusPaused(false);
-    }
-  }
-
   function handlePointerHover(event: PointerEvent<HTMLElement>) {
     if (
-      event.pointerType !== "mouse" ||
-      !window.matchMedia("(hover: hover) and (pointer: fine)").matches
+      event.pointerType === "mouse" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches
     )
-      return;
-    // A focused/hovered Play button must be able to resume the gallery.
-    const overAutoplay =
-      event.target instanceof Element &&
-      Boolean(event.target.closest("[data-autoplay-control]"));
-    setHoverPaused(!overAutoplay);
+      setHoverPaused(true);
   }
 
-  function handlePointerInteraction(event: PointerEvent<HTMLElement>) {
-    if (
-      event.target instanceof Element &&
-      event.target.closest("[data-autoplay-control]")
-    )
-      return;
+  function handlePointerInteraction() {
+    setPointerDown(true);
+    setFocusPaused(false);
     pauseManually();
   }
 
   function handleFocus(event: FocusEvent<HTMLElement>) {
-    setFocusPaused(event.target !== autoplayButtonRef.current);
+    setFocusPaused(
+      event.target instanceof Element && event.target.matches(":focus-visible"),
+    );
   }
 
   function handleBlur(event: FocusEvent<HTMLElement>) {
     const next = event.relatedTarget;
     setFocusPaused(
-      next instanceof Node &&
+      next instanceof Element &&
         Boolean(galleryRef.current?.contains(next)) &&
-        next !== autoplayButtonRef.current,
+        next.matches(":focus-visible"),
     );
   }
 
@@ -406,6 +414,12 @@ export default function PhotoCarousel() {
       onPointerDownCapture={handlePointerInteraction}
       onFocusCapture={handleFocus}
       onBlurCapture={handleBlur}
+      onKeyDownCapture={(event) => {
+        if (
+          ["Tab", "ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)
+        )
+          setFocusPaused(true);
+      }}
     >
       <GraphicAccent kind="ribbon" className="gallery-red-ribbon" />
       <div className="portal-container">
@@ -425,47 +439,6 @@ export default function PhotoCarousel() {
             <DoodleArrow className="gallery-doodle" />
           </div>
           <div className="photo-carousel-controls" aria-label="Kontrol galeri">
-            <button
-              ref={autoplayButtonRef}
-              className="photo-autoplay"
-              type="button"
-              data-autoplay-control
-              onClick={toggleAutoplay}
-              disabled={reducedMotion === true || pages.length < 2}
-              aria-controls={trackId}
-              aria-label={
-                reducedMotion
-                  ? "Geser otomatis dinonaktifkan mengikuti preferensi gerak perangkat"
-                  : autoplayEnabled
-                    ? "Jeda pergeseran foto otomatis"
-                    : "Putar galeri foto otomatis"
-              }
-              title={
-                reducedMotion
-                  ? "Gerak otomatis dimatikan sesuai preferensi perangkat."
-                  : "Foto bergeser otomatis setiap 5 detik."
-              }
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                {autoplayEnabled && !reducedMotion ? (
-                  <>
-                    <rect x="5" y="4" width="3" height="12" rx="1" />
-                    <rect x="12" y="4" width="3" height="12" rx="1" />
-                  </>
-                ) : (
-                  <path d="M6 3.8a.7.7 0 0 1 1.1-.6l9 6.2a.7.7 0 0 1 0 1.2l-9 6.2a.7.7 0 0 1-1.1-.6V3.8Z" />
-                )}
-              </svg>
-              <span>
-                {reducedMotion ? "Manual" : autoplayEnabled ? "Jeda" : "Putar"}
-              </span>
-            </button>
             <button
               className="photo-arrow photo-arrow-prev"
               type="button"
@@ -573,7 +546,10 @@ export default function PhotoCarousel() {
 
         <div className="photo-gallery-bottom">
           <span className="photo-gallery-hint">
-            <span aria-hidden="true">↔</span> Geser untuk melihat cerita lainnya
+            <span aria-hidden="true">↔</span>{" "}
+            {reducedMotion
+              ? "Geser untuk melihat cerita lainnya"
+              : "Bergeser otomatis · geser untuk menjelajahi"}
           </span>
           <div
             className="photo-pagination"
@@ -597,7 +573,7 @@ export default function PhotoCarousel() {
           <span
             className="photo-gallery-status"
             role="status"
-            aria-live={autoplayEnabled ? "off" : "polite"}
+            aria-live={canAutoplay ? "off" : "polite"}
             aria-atomic="true"
           >
             <span className="photo-sr-only">Foto </span>

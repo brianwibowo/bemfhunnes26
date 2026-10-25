@@ -201,6 +201,9 @@ export default function Home() {
         className="portal-section portal-container home-spaces"
         aria-labelledby="spaces-title"
       >
+        <span className="curve-edge curve-edge--spaces" aria-hidden="true">
+          <GraphicAccent kind="ribbon" className="spaces-edge-ribbon" />
+        </span>
         <div className="portal-section-heading" data-reveal="left">
           <div>
             <span className="portal-eyebrow">
@@ -251,6 +254,12 @@ export default function Home() {
         className="home-profile portal-section"
         aria-labelledby="profile-heading"
       >
+        <span
+          className="curve-edge curve-edge--home-profile"
+          aria-hidden="true"
+        >
+          <GraphicAccent kind="ribbon" className="home-profile-edge-ribbon" />
+        </span>
         <div className="portal-container home-profile-inner">
           <figure className="together-photo motion-picture" data-reveal="image">
             <Image

@@ -107,6 +107,9 @@ export default function Profile() {
           className="cabinet-direction portal-section"
           aria-labelledby="cabinet-direction-title"
         >
+          <span className="curve-edge curve-edge--direction" aria-hidden="true">
+            <GraphicAccent kind="ribbon" className="direction-edge-ribbon" />
+          </span>
           <div className="portal-container">
             <div className="cabinet-section-heading" data-reveal="left">
               <div>

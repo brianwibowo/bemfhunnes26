@@ -28,9 +28,11 @@
 }
 .home-hero--photographic .hero-banner {
   overflow: hidden;
+  overflow: clip;
 }
 .home-hero--photographic {
   overflow: hidden;
+  overflow: clip;
 }
 .home-hero--photographic .hero-banner > .hero-banner-loop {
   width: 220px;
@@ -70,6 +72,8 @@
 }
 .photo-gallery {
   isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
 }
 .photo-gallery > .portal-container {
   position: relative;
@@ -95,6 +99,12 @@
 }
 .home-spaces {
   position: relative;
+  isolation: isolate;
+}
+.home-spaces > .portal-section-heading,
+.home-spaces > .spaces-grid {
+  position: relative;
+  z-index: 1;
 }
 .spaces-doodle {
   position: absolute;
@@ -109,6 +119,7 @@
 .home-profile {
   isolation: isolate;
   overflow: hidden;
+  overflow: clip;
 }
 .home-profile-inner {
   position: relative;
@@ -124,6 +135,10 @@
   top: 40px;
   rotate: -35deg;
 }
+.home-collab {
+  overflow: hidden;
+  overflow: clip;
+}
 .home-collab > .collab-copy {
   position: relative;
   z-index: 1;
@@ -137,21 +152,93 @@
   rotate: -12deg;
   opacity: 0.9;
 }
+/* Edge windows crop the ribbons before they reach readable content. */
+.curve-edge {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  overflow: clip;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.curve-edge--spaces {
+  top: 85px;
+  left: calc((100vw - 100%) / -2);
+  width: calc((100vw - 100%) / 2);
+  height: 330px;
+}
+.spaces-edge-ribbon {
+  width: 230px;
+  top: -25px;
+  left: -48px;
+  rotate: -22deg;
+}
+.curve-edge--home-profile,
+.curve-edge--direction {
+  right: 0;
+  width: max(48px, calc((100vw - var(--max)) / 2));
+  height: 330px;
+}
+.curve-edge--home-profile {
+  top: 110px;
+}
+.home-profile-edge-ribbon {
+  width: 260px;
+  top: -10px;
+  right: -150px;
+  rotate: 25deg;
+}
+.cabinet-direction {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+}
+.cabinet-direction > .portal-container {
+  position: relative;
+  z-index: 1;
+}
+.curve-edge--direction {
+  top: 45px;
+}
+.direction-edge-ribbon {
+  width: 270px;
+  top: 0;
+  right: -145px;
+  rotate: -18deg;
+}
+.hero-banner-loop,
+.collab-loop,
+.home-profile-edge-ribbon {
+  --curve-y-from: 24px;
+  --curve-y-to: -24px;
+}
+.hero-red-arch,
+.profile-hero-ribbon {
+  --curve-y-from: -14px;
+  --curve-y-to: 14px;
+}
+.section-hero-ribbon {
+  --curve-y-from: -16px;
+  --curve-y-to: 16px;
+}
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .gallery-red-ribbon {
-      animation: accent-scroll-turn linear both;
+    .graphic-accent,
+    .section-hero-ribbon {
+      animation: accent-scroll-drift linear both;
       animation-timeline: view(block);
       animation-range: entry 0% exit 100%;
     }
   }
 }
-@keyframes accent-scroll-turn {
+@keyframes accent-scroll-drift {
   from {
-    transform: translateY(-12px) rotate(-9deg);
+    translate: 0 var(--curve-y-from, -24px);
   }
   to {
-    transform: translateY(18px) rotate(12deg);
+    translate: 0 var(--curve-y-to, 24px);
   }
 }
 @media (max-width: 1100px) {
@@ -193,6 +280,32 @@
   }
 }
 @media (max-width: 680px) {
+  .graphic-accent,
+  .section-hero-ribbon {
+    --curve-y-from: -12px;
+    --curve-y-to: 12px;
+  }
+  .curve-edge--spaces,
+  .curve-edge--home-profile,
+  .curve-edge--direction {
+    top: 0;
+    width: 95px;
+    height: 58px;
+  }
+  .curve-edge--spaces {
+    left: -20px;
+  }
+  .spaces-edge-ribbon {
+    width: 180px;
+    left: -35px;
+    top: -122px;
+  }
+  .home-profile-edge-ribbon,
+  .direction-edge-ribbon {
+    width: 180px;
+    right: -54px;
+    top: -122px;
+  }
   .home-hero--photographic .hero-banner > .hero-banner-loop {
     top: -65px;
     right: -55px;
@@ -227,7 +340,9 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .gallery-red-ribbon {
+  .graphic-accent,
+  .section-hero-ribbon {
     animation: none;
+    translate: none;
   }
 }

@@ -17,6 +17,8 @@
 }
 .section-public-page .portal-page-hero {
   isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
 }
 .section-hero-ribbon {
   width: clamp(290px, 35vw, 485px);
@@ -55,20 +57,43 @@
 }
 .profile-hero-emblem > .cabinet-art {
   z-index: 1;
+  padding-bottom: 28px;
 }
-.profile-hero-emblem .art-ring-outer {
-  display: none;
-}
-.profile-hero-emblem .art-ring-inner {
-  width: 350px;
-  height: 350px;
+.profile-hero-emblem .art-identity {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(90%, 330px);
+  padding: 30px 20px 28px;
   background: var(--cream);
-  border: 0;
-  box-shadow: none;
+  border: 1px solid #e3cba9;
+  border-radius: 180px 180px 36px 36px;
+  box-shadow: 0 14px 35px #35192112;
+}
+.profile-hero-emblem .art-medallion {
+  padding-top: 0;
+}
+.profile-hero-emblem .art-medallion img {
+  height: 232px;
+  width: auto;
+  object-fit: contain;
+}
+.profile-hero-emblem .art-caption {
+  width: 100%;
+  margin-top: 16px;
+  color: var(--maroon);
+}
+.profile-hero-emblem .art-caption > strong {
+  font-size: 24px;
+  margin: 3px 0;
 }
 .profile-hero-emblem .art-label {
   right: 0;
-  bottom: 30px;
+  bottom: 10px;
+  max-width: 100%;
+  z-index: 2;
 }
 @media (max-width: 1100px) {
   .section-hero-ribbon {
@@ -76,9 +101,15 @@
     right: -166px;
     top: 182px;
   }
-  .profile-hero-emblem .art-ring-inner {
-    width: 295px;
-    height: 295px;
+  .profile-hero-emblem .art-identity {
+    width: min(90%, 285px);
+    padding: 26px 18px;
+  }
+  .profile-hero-emblem .art-medallion img {
+    height: 205px;
+  }
+  .profile-hero-emblem .art-caption > strong {
+    font-size: 21px;
   }
 }
 @media (max-width: 900px) {
@@ -107,13 +138,23 @@
     width: calc(100% + 20px);
     max-width: 410px;
   }
-  .profile-hero-emblem .art-ring-inner {
-    width: min(86%, 295px);
-    height: auto;
-    aspect-ratio: 1;
+  .profile-hero-emblem .cabinet-art {
+    min-height: 380px;
+    padding-bottom: 30px;
+  }
+  .profile-hero-emblem .art-identity {
+    width: min(90%, 285px);
+    padding: 25px 16px;
+    border-radius: 150px 150px 28px 28px;
+  }
+  .profile-hero-emblem .art-medallion img {
+    height: 185px;
+  }
+  .profile-hero-emblem .art-caption > strong {
+    font-size: 20px;
   }
   .profile-hero-emblem .art-label {
-    right: -2px;
-    bottom: 43px;
+    right: 0;
+    bottom: 4px;
   }
 }
