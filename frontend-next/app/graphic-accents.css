@@ -162,18 +162,6 @@
   user-select: none;
   z-index: 0;
 }
-.curve-edge--spaces {
-  top: 85px;
-  left: calc((100vw - 100%) / -2);
-  width: calc((100vw - 100%) / 2);
-  height: 330px;
-}
-.spaces-edge-ribbon {
-  width: 230px;
-  top: -25px;
-  left: -48px;
-  rotate: -22deg;
-}
 .curve-edge--home-profile,
 .curve-edge--direction {
   right: 0;
@@ -285,20 +273,11 @@
     --curve-y-from: -12px;
     --curve-y-to: 12px;
   }
-  .curve-edge--spaces,
   .curve-edge--home-profile,
   .curve-edge--direction {
     top: 0;
     width: 95px;
     height: 58px;
-  }
-  .curve-edge--spaces {
-    left: -20px;
-  }
-  .spaces-edge-ribbon {
-    width: 180px;
-    left: -35px;
-    top: -122px;
   }
   .home-profile-edge-ribbon,
   .direction-edge-ribbon {

@@ -26,7 +26,7 @@ Galeri bergeser otomatis setiap lima detik tanpa tombol Putar. Geser manual dan 
 
 Favicon memakai logo BEM FH resmi melalui `app/favicon.ico`, `app/icon.png`, dan `app/apple-icon.png`. Logo serta nama kabinet di profil berada dalam satu bidang krem agar tidak menyatu dengan aksen marun di belakangnya.
 
-Dekorasi merah marun dan emas memakai SVG asli di `GraphicAccent.tsx`, `graphic-accents.css`, dan `inner-graphics.css`, termasuk bentuk lengkung besar, pita, serta panah melingkar. Aksen tambahan berada di Ruang Kita, pengantar profil beranda, dan arah gerak profil. Lengkung bergerak ringan mengikuti arah scroll pada browser yang mendukung, dengan tampilan statis untuk reduced motion. `ContextPointer` menampilkan petunjuk pada tautan publik bertanda `data-pointer-label`, hanya untuk mouse desktop tanpa reduced motion. Pointer bawaan tetap terlihat; dekorasi tidak menangkap klik atau dibacakan pembaca layar.
+Dekorasi merah marun dan emas memakai SVG asli di `GraphicAccent.tsx`, `graphic-accents.css`, dan `inner-graphics.css`, termasuk bentuk lengkung besar, pita, serta panah melingkar. Aksen tambahan berada di pengantar profil beranda dan arah gerak profil. Lengkung bergerak ringan mengikuti arah scroll pada browser yang mendukung, dengan tampilan statis untuk reduced motion. `ContextPointer` menampilkan petunjuk pada tautan publik bertanda `data-pointer-label`, hanya untuk mouse desktop tanpa reduced motion. Pointer bawaan tetap terlihat; dekorasi tidak menangkap klik atau dibacakan pembaca layar.
 
 ## Halaman dan pengelolaan
 
