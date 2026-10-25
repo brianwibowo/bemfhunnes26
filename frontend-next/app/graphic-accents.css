@@ -1,0 +1,233 @@
+/* Bold maroon silhouettes and drawn directions, in the cabinet's own palette. */
+.graphic-accent,
+.doodle-arrow {
+  pointer-events: none;
+  user-select: none;
+}
+.graphic-accent {
+  position: absolute;
+  display: block;
+  overflow: visible;
+}
+.doodle-arrow {
+  display: block;
+  color: var(--maroon);
+}
+.doodle-arrow > span {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+.doodle-arrow > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.home-hero--photographic .hero-banner {
+  overflow: hidden;
+}
+.home-hero--photographic {
+  overflow: hidden;
+}
+.home-hero--photographic .hero-banner > .hero-banner-loop {
+  width: 220px;
+  height: 220px;
+  top: -95px;
+  right: -15px;
+  color: var(--gold);
+  rotate: -12deg;
+}
+.hero-photo-composition {
+  isolation: isolate;
+}
+.hero-red-arch {
+  width: calc(100% + 120px);
+  height: auto;
+  left: -45px;
+  top: -15px;
+  color: var(--red);
+  rotate: -12deg;
+  z-index: -1;
+}
+.hero-photo-note {
+  position: absolute;
+  left: -111px;
+  bottom: 10px;
+  width: 134px;
+  rotate: -14deg;
+  z-index: 2;
+}
+.hero-photo-note > span {
+  padding-left: 3px;
+  max-width: 110px;
+}
+.hero-photo-note > svg {
+  transform: scaleY(-1);
+  margin-top: -8px;
+}
+.photo-gallery {
+  isolation: isolate;
+}
+.photo-gallery > .portal-container {
+  position: relative;
+  z-index: 1;
+}
+.gallery-red-ribbon {
+  width: 330px;
+  top: -85px;
+  right: -175px;
+  rotate: -25deg;
+  color: var(--maroon);
+  z-index: 0;
+}
+.photo-gallery-heading > div:first-child {
+  position: relative;
+}
+.gallery-doodle {
+  position: absolute;
+  width: 113px;
+  right: -115px;
+  bottom: -28px;
+  rotate: 10deg;
+}
+.home-spaces {
+  position: relative;
+}
+.spaces-doodle {
+  position: absolute;
+  width: 135px;
+  top: 117px;
+  left: 51%;
+  rotate: 10deg;
+}
+.spaces-doodle > span {
+  padding-left: 8px;
+}
+.home-profile {
+  isolation: isolate;
+  overflow: hidden;
+}
+.home-profile-inner {
+  position: relative;
+  z-index: 1;
+}
+.home-profile-copy {
+  position: relative;
+}
+.profile-doodle {
+  position: absolute;
+  width: 80px;
+  left: -100px;
+  top: 40px;
+  rotate: -35deg;
+}
+.home-collab > .collab-copy {
+  position: relative;
+  z-index: 1;
+}
+.collab-loop {
+  width: 300px;
+  height: 300px;
+  right: -95px;
+  top: -70px;
+  color: var(--gold);
+  rotate: -12deg;
+  opacity: 0.9;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .gallery-red-ribbon {
+      animation: accent-scroll-turn linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+@keyframes accent-scroll-turn {
+  from {
+    transform: translateY(-12px) rotate(-9deg);
+  }
+  to {
+    transform: translateY(18px) rotate(12deg);
+  }
+}
+@media (max-width: 1100px) {
+  .hero-photo-note {
+    display: none;
+  }
+  .hero-red-arch {
+    width: calc(100% + 80px);
+    left: -30px;
+  }
+  .gallery-doodle {
+    right: -75px;
+    width: 85px;
+    bottom: -40px;
+  }
+  .spaces-doodle {
+    left: 45%;
+    width: 110px;
+    top: 145px;
+  }
+  .profile-doodle {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .gallery-doodle {
+    display: none;
+  }
+  .spaces-doodle {
+    display: none;
+  }
+  .profile-doodle {
+    display: none;
+  }
+  .gallery-red-ribbon {
+    top: -75px;
+    right: -155px;
+    width: 270px;
+  }
+}
+@media (max-width: 680px) {
+  .home-hero--photographic .hero-banner > .hero-banner-loop {
+    top: -65px;
+    right: -55px;
+    width: 170px;
+    height: 170px;
+  }
+  .hero-red-arch {
+    width: calc(100% + 65px);
+    left: -25px;
+    top: -10px;
+  }
+  .hero-photo-composition {
+    margin-bottom: 20px;
+  }
+  .home-hero--photographic .hero-bottom {
+    padding-top: 20px;
+  }
+  .gallery-red-ribbon {
+    width: 140px;
+    top: -42px;
+    right: -80px;
+  }
+  .photo-gallery-heading > div:first-child {
+    padding-right: 5px;
+  }
+  .collab-loop {
+    width: 185px;
+    height: 185px;
+    top: auto;
+    bottom: -55px;
+    right: -85px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-red-ribbon {
+    animation: none;
+  }
+}

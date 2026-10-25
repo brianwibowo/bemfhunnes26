@@ -1,0 +1,119 @@
+/* Original cabinet graphics for the profile and independent public rubrics. */
+.section-hero-ribbon,
+.profile-hero-ribbon {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+.inner-graphic-maroon {
+  fill: var(--maroon);
+}
+.inner-graphic-gold {
+  fill: var(--gold);
+}
+.inner-graphic-red {
+  fill: var(--red-bright);
+}
+.section-public-page .portal-page-hero {
+  isolation: isolate;
+}
+.section-hero-ribbon {
+  width: clamp(290px, 35vw, 485px);
+  height: auto;
+  right: -134px;
+  top: 163px;
+  z-index: 0;
+  transform: rotate(-15deg);
+  transform-origin: 100% 0;
+}
+.section-public-page .portal-page-hero > .portal-container {
+  z-index: 1;
+}
+.section-public-page .section-jump-link {
+  min-height: 44px;
+  padding: 6px 16px;
+  border: 1px solid #ddc7aa;
+  border-radius: 99px;
+  background: var(--cream);
+  color: var(--maroon);
+}
+.profile-hero-emblem {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+}
+.profile-hero-ribbon {
+  width: min(112%, 500px);
+  max-width: none;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  z-index: 0;
+  color: var(--maroon);
+}
+.profile-hero-emblem > .cabinet-art {
+  z-index: 1;
+}
+.profile-hero-emblem .art-ring-outer {
+  display: none;
+}
+.profile-hero-emblem .art-ring-inner {
+  width: 350px;
+  height: 350px;
+  background: var(--cream);
+  border: 0;
+  box-shadow: none;
+}
+.profile-hero-emblem .art-label {
+  right: 0;
+  bottom: 30px;
+}
+@media (max-width: 1100px) {
+  .section-hero-ribbon {
+    width: 340px;
+    right: -166px;
+    top: 182px;
+  }
+  .profile-hero-emblem .art-ring-inner {
+    width: 295px;
+    height: 295px;
+  }
+}
+@media (max-width: 900px) {
+  .section-hero-ribbon {
+    width: 280px;
+    right: -180px;
+    top: 180px;
+  }
+  .profile-hero-ribbon {
+    width: 110%;
+  }
+}
+@media (max-width: 680px) {
+  .section-hero-ribbon {
+    width: 105px;
+    right: -25px;
+    top: 91px;
+    transform: rotate(-16deg);
+  }
+  .profile-hero-emblem {
+    max-width: 390px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .profile-hero-ribbon {
+    width: calc(100% + 20px);
+    max-width: 410px;
+  }
+  .profile-hero-emblem .art-ring-inner {
+    width: min(86%, 295px);
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .profile-hero-emblem .art-label {
+    right: -2px;
+    bottom: 43px;
+  }
+}

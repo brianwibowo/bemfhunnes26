@@ -1,3 +1,100 @@
-import Link from 'next/link';
-import { labels } from '../lib/types';
-export default function SiteShell({children}:{children:React.ReactNode}){return <div className="page-bg"><header className="site-header container"><Link href="/beranda" className="brand"><img className="brand-logo" src="/images/logo-bem.webp" alt="Logo BEM FH UNNES" /><span className="brand-copy"><strong>BEM FH UNNES <em>2026</em></strong><small>KABINET LAKSANA ADHIKARA</small></span></Link><nav className="nav">{[['/beranda','Beranda'],['/profil','Profil'],['/kemahasiswaan','Kemahasiswaan'],['/eksternal','Eksternal'],['/berita','Berita']].map(([href,name])=><Link key={href} href={href}>{name}</Link>)}</nav></header><main>{children}</main><footer className="footer container"><div className="eyebrow">BEM FH UNNES 2026</div><h2>Kabinet Laksana Adhikara</h2><p>Badan Eksekutif Mahasiswa - Fakultas Hukum Universitas Negeri Semarang.</p><div className="footer-links">{Object.entries(labels).map(([key,label])=><Link key={key} href={`/${key}`}>{label}</Link>)}<Link href="/admin/login">Login admin</Link></div><div className="footer-socials"><a href="https://www.instagram.com/bemfhunnes/" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.tiktok.com/@bemfhunnes/" target="_blank" rel="noreferrer">TikTok</a><a href="https://wa.me/6288200557365" target="_blank" rel="noreferrer">WhatsApp</a><a href="https://www.youtube.com/@BEMFHUNNES26" target="_blank" rel="noreferrer">YouTube</a><a href="https://www.linkedin.com/company/bem-fakultas-hukum-unnes" target="_blank" rel="noreferrer">LinkedIn</a></div><div className="footer-bottom"><span>© 2026 BEM FH UNNES - By Kantor Media Informasi</span><span>Semarang, Jawa Tengah</span></div></footer></div>}
+import Link from "next/link";
+import SiteHeader from "./SiteHeader";
+import Icon from "./Icon";
+import { navigation, socialLinks } from "../lib/site";
+import ScrollReveal from "./ScrollReveal";
+import ContextPointer from "./ContextPointer";
+
+export default function SiteShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="portal-site">
+      <a className="skip-link" href="#main-content">
+        Langsung ke konten
+      </a>
+      <SiteHeader />
+      <main id="main-content">
+        <ScrollReveal>{children}</ScrollReveal>
+      </main>
+      <footer id="hubungi-kami" className="portal-footer">
+        <div className="portal-container">
+          <div className="footer-topline">
+            <span className="portal-eyebrow">
+              Bertemu, bercerita, berkolaborasi.
+            </span>
+            <a
+              href="https://wa.me/6288200557365"
+              className="portal-button button-gold"
+              target="_blank"
+              rel="noreferrer"
+              data-pointer-label="Sapa kami"
+            >
+              Sapa kami <Icon name="arrow-up" />
+            </a>
+          </div>
+          <div className="footer-heading">
+            <h2>
+              Mari bergerak
+              <br />
+              <em>bersama.</em>
+            </h2>
+            <img
+              src="/images/logo-kabinet-laksana-adhikara.webp"
+              width="140"
+              height="205"
+              alt="Logo Kabinet Laksana Adhikara"
+              loading="lazy"
+            />
+          </div>
+          <div className="footer-info">
+            <div className="footer-address">
+              <strong>BEM FH UNNES 2026</strong>
+              <p>
+                Kabinet Laksana Adhikara
+                <br />
+                Fakultas Hukum
+                <br />
+                Universitas Negeri Semarang
+              </p>
+              <span>
+                <Icon name="pin" /> Semarang, Jawa Tengah
+              </span>
+            </div>
+            <div>
+              <h3>Jelajahi</h3>
+              <nav aria-label="Navigasi footer">
+                {navigation.map((item) => (
+                  <Link href={item.href} key={item.href}>
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+            <div>
+              <h3>Tetap terhubung</h3>
+              <nav aria-label="Media sosial">
+                {socialLinks.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {item.label}
+                    <Icon name="arrow-up" />
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+          <div className="footer-bottomline">
+            <span>© 2026 BEM FH UNNES · Kantor Media Informasi</span>
+            <Link href="/admin/login">
+              Ruang pengelola <Icon name="arrow-up" />
+            </Link>
+          </div>
+        </div>
+      </footer>
+      <ContextPointer />
+    </div>
+  );
+}

@@ -1,0 +1,428 @@
+/* Each content page has its own identity, listing, and management space. */
+.section-page--kemahasiswaan {
+  --section-accent: #966416;
+  --section-soft: #f9edcd;
+  --section-border: #e6d1a3;
+}
+.section-page--eksternal {
+  --section-accent: #731b2c;
+  --section-soft: #f2dfe2;
+  --section-border: #ddbec4;
+}
+.section-page--berita {
+  --section-accent: #7c4832;
+  --section-soft: #efe4d9;
+  --section-border: #dfcab8;
+}
+.section-public-page .portal-page-hero {
+  background: linear-gradient(125deg, var(--cream) 35%, var(--section-soft));
+}
+.section-public-page .portal-page-hero-orbit {
+  border-color: var(--section-border);
+  opacity: 0.24;
+}
+.section-public-page .section-route-title {
+  font-size: clamp(42px, 7.2vw, 96px);
+  margin-bottom: 15px;
+  overflow-wrap: anywhere;
+}
+.section-route-title > span {
+  color: var(--section-accent);
+}
+.section-route-tagline {
+  font-size: clamp(21px, 3vw, 36px);
+  letter-spacing: -0.035em;
+  color: var(--section-accent);
+  font-weight: 650;
+  line-height: 1.25;
+  max-width: 750px;
+  margin: 0 0 24px;
+}
+.section-public-page .portal-page-description {
+  max-width: 610px;
+}
+.section-route-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--section-accent);
+}
+.section-route-signature svg {
+  width: 17px;
+  height: 17px;
+}
+.section-jump-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--section-accent);
+}
+.section-jump-link > span {
+  font-size: 23px;
+}
+.section-public-page .section-listing-heading {
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+}
+.section-listing-identity {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-width: 0;
+}
+.section-identity-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  border: 1px solid var(--section-border, #e2cbb3);
+  border-radius: 15px;
+  background: var(--section-soft, #f2e7d6);
+  color: var(--section-accent, #731b2c);
+  flex-shrink: 0;
+}
+.section-identity-icon svg {
+  width: 23px;
+  height: 23px;
+}
+.section-listing-identity h2 {
+  margin: 0 0 7px;
+  font-size: clamp(21px, 2.5vw, 30px);
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+.section-listing-identity p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.section-listing-heading .portal-results-count {
+  flex-shrink: 0;
+  padding: 9px 14px;
+  background: var(--section-soft);
+  border: 1px solid var(--section-border);
+  border-radius: 99px;
+  color: var(--section-accent);
+  font-size: 10px;
+}
+.admin-shell .section-management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+}
+.section-management-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-management-kicker .section-identity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+.admin-shell .section-management-page h1,
+.admin-shell .section-dashboard h1,
+.admin-shell .section-editor h1 {
+  font-size: clamp(31px, 3.5vw, 46px);
+  font-weight: 650;
+  margin: 18px 0 14px;
+}
+.admin-shell .section-dashboard > h1 {
+  max-width: 770px;
+}
+.section-management-header p,
+.section-dashboard > p {
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.8;
+  font-size: 13px;
+}
+.section-management-actions {
+  display: grid;
+  justify-items: end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.admin-shell .section-admin-public-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #875b4d;
+  font-size: 11px;
+  font-weight: 550;
+}
+.section-admin-public-link svg,
+.section-edit-link svg {
+  width: 15px;
+  height: 15px;
+}
+.section-management-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 32px 0 18px;
+  flex-wrap: wrap;
+}
+.section-status-filters {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.admin-shell .section-status-filters .btn {
+  min-height: 40px;
+  padding: 9px 15px;
+  font-size: 11px;
+}
+.admin-shell .section-status-filters .btn.is-selected {
+  color: #fffaf1;
+  border-color: var(--admin-maroon);
+  background: var(--admin-maroon);
+}
+.section-admin-result-count {
+  font-size: 10px;
+  color: #897a71;
+}
+.section-admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 34px 10px;
+  font-size: 12px;
+  color: #806c64;
+}
+.section-dashboard > .section-admin-loading {
+  justify-content: flex-start;
+  padding-block: 16px 0;
+}
+.section-admin-empty {
+  padding: 32px 8px;
+  text-align: center;
+}
+.section-admin-empty strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+}
+.section-admin-empty p {
+  margin: 9px 0 0;
+  color: #89776d;
+  font-size: 12px;
+}
+.section-admin-state {
+  padding: 30px;
+  margin: 28px 0;
+  background: #fff;
+  border: 1px solid #e5d9cf;
+  border-radius: 18px;
+}
+.section-admin-state h2 {
+  font-size: 23px;
+  letter-spacing: -0.035em;
+  margin: 0 0 10px;
+}
+.section-admin-state p {
+  color: #806c64;
+  font-size: 13px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+.section-admin-state > .section-admin-public-link {
+  margin-left: 18px;
+}
+.section-admin-error {
+  border-color: #e8cebf;
+  background: #fff9f1;
+}
+.admin-shell .section-edit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--admin-maroon);
+  font-size: 12px;
+  font-weight: 650;
+}
+.section-admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.section-admin-pagination > span {
+  font-size: 11px;
+  color: #89776d;
+}
+.section-management-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+  margin-top: 32px;
+}
+.admin-shell .section-management-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 25px 22px;
+  border-top: 4px solid var(--section-accent);
+  border-radius: 16px;
+}
+.section-management-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.section-management-card-top > span:last-child {
+  color: var(--section-accent);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.admin-shell .section-management-card > h2 {
+  margin: 12px 0;
+  font-size: clamp(23px, 2vw, 29px);
+  letter-spacing: -0.045em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.admin-shell .section-management-card > p {
+  margin: 0 0 22px;
+  color: #89756d;
+  font-size: 11px;
+  line-height: 1.85;
+}
+.section-card-counts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 12px;
+  padding: 20px 0;
+  margin: auto 0 22px;
+  border-block: 1px solid #efe5da;
+}
+.section-card-counts > div {
+  min-width: 0;
+}
+.section-card-counts dt {
+  font-size: 9px;
+  color: #88766e;
+  line-height: 1.5;
+}
+.section-card-counts dd {
+  margin: 5px 0 0;
+  font-size: 24px;
+  color: #6c2836;
+  font-weight: 650;
+  line-height: 1.3;
+}
+.section-card-counts .section-card-pending dd {
+  color: #a1681c;
+}
+.admin-shell .section-management-card > .section-card-manage {
+  justify-content: space-between;
+  color: #fffaf1 !important;
+  min-height: 45px;
+  font-size: 11px;
+  padding-inline: 17px;
+}
+.section-card-manage svg {
+  width: 16px;
+  height: 16px;
+}
+.admin-shell .section-management-card > .section-admin-public-link {
+  align-self: center;
+  margin-top: 14px;
+  font-weight: 500;
+  font-size: 10px;
+}
+.section-editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 1200px) {
+  .section-management-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1000px) {
+  .section-management-header {
+    flex-wrap: wrap;
+  }
+  .section-management-actions {
+    justify-items: start;
+  }
+}
+@media (max-width: 680px) {
+  .section-public-page .section-route-title {
+    font-size: clamp(35px, 8.8vw, 60px);
+    letter-spacing: -0.045em;
+  }
+  .section-route-tagline {
+    font-size: 23px;
+  }
+  .section-public-page .portal-page-hero-bottom {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  .section-jump-link {
+    font-size: 9px;
+  }
+  .section-public-page .section-listing-heading {
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .section-listing-identity {
+    gap: 13px;
+    align-items: flex-start;
+  }
+  .section-identity-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+  }
+  .section-listing-identity h2 {
+    font-size: 23px;
+  }
+  .section-listing-identity p {
+    font-size: 11px;
+  }
+  .section-management-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-management-actions {
+    justify-items: start;
+  }
+  .section-management-toolbar {
+    margin-top: 26px;
+  }
+  .admin-shell .section-status-filters .btn {
+    padding-inline: 12px;
+    font-size: 10px;
+  }
+  .section-admin-pagination {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .section-admin-pagination > span {
+    order: 3;
+    flex-basis: 100%;
+    text-align: center;
+  }
+  .section-admin-state {
+    padding: 24px 20px;
+  }
+  .section-admin-state > .section-admin-public-link {
+    display: flex;
+    margin: 16px 0 0;
+  }
+}

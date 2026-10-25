@@ -1,0 +1,61 @@
+.context-pointer {
+  position: fixed;
+  z-index: 80;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: max-content;
+  max-width: 196px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  transition:
+    opacity 120ms ease,
+    visibility 120ms ease;
+}
+
+.context-pointer[data-visible="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.context-pointer-arrow {
+  width: 24px;
+  height: 28px;
+  overflow: visible;
+  transform: translateY(-9px) rotate(-10deg);
+  filter: drop-shadow(0 2px 2px #3519211a);
+}
+
+.context-pointer-arrow path {
+  fill: var(--maroon);
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.context-pointer-label {
+  display: block;
+  overflow: hidden;
+  max-width: 166px;
+  padding: 7px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 5px 15px 15px;
+  background: var(--maroon);
+  color: var(--cream);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-shadow: 0 3px 0 #edbb534d;
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .context-pointer {
+    display: none;
+  }
+}

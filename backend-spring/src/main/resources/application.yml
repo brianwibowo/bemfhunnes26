@@ -13,6 +13,7 @@ spring:
       max-file-size: 10MB
       max-request-size: 12MB
 app:
+  seed-demo-content: ${SEED_DEMO_CONTENT:false}
   jwt-secret: ${JWT_SECRET:development-only-change-this-secret}
   upload-dir: ${UPLOAD_DIR:./uploads}
   cors-origins: ${CORS_ORIGINS:http://localhost:3000}
