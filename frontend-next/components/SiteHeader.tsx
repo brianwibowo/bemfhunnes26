@@ -53,13 +53,8 @@ export default function SiteHeader() {
           priority
         />
         <span className="portal-brand-type">
-          <strong>
-            Laksana
-            <span>
-              Adhikara<span className="brand-spark">✦</span>
-            </span>
-          </strong>
-          <small>BEM FH UNNES 2026</small>
+          <strong>BEM FH UNNES 2026</strong>
+          <small>Kabinet Laksana Adhikara</small>
         </span>
       </Link>
       <button

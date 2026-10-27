@@ -87,7 +87,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="footer-bottomline">
-            <span>© 2026 BEM FH UNNES · Kantor Media Informasi</span>
+            <span>BEM FH UNNES 2026 – By Kantor Media Informasi</span>
             <Link href="/admin/login">
               Ruang pengelola <Icon name="arrow-up" />
             </Link>

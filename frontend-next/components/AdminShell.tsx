@@ -264,24 +264,26 @@ export default function AdminShell({
               ↗
             </span>
           </Link>
-          {Object.entries(labels).map(([key, label]) => {
-            const selected = path?.startsWith(`/admin/${key}`);
-            return (
-              <Link
-                key={key}
-                className={selected ? "active" : ""}
-                href={`/admin/${key}`}
-                aria-current={selected ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
-              >
-                <NavigationIcon kind={key} />
-                <span>{label}</span>
-                <span className="admin-nav-arrow" aria-hidden="true">
-                  ↗
-                </span>
-              </Link>
-            );
-          })}
+          {Object.entries(labels)
+            .filter(([key]) => key === "berita")
+            .map(([key, label]) => {
+              const selected = path?.startsWith(`/admin/${key}`);
+              return (
+                <Link
+                  key={key}
+                  className={selected ? "active" : ""}
+                  href={`/admin/${key}`}
+                  aria-current={selected ? "page" : undefined}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <NavigationIcon kind={key} />
+                  <span>{label}</span>
+                  <span className="admin-nav-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
+              );
+            })}
         </nav>
         <div className="admin-side-note">
           <img

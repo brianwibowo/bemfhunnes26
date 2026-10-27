@@ -7,6 +7,7 @@ import "./context-pointer.css";
 import "./inner-graphics.css";
 import "./cabinet-home.css";
 import "./cabinet-content.css";
+import "./service-home.css";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 

@@ -58,8 +58,7 @@ export default function AdminDashboard() {
         <div className="eyebrow">Ruang pengelolaan</div>
         <h1 id="management-dashboard-title">Pilih halaman yang dikelola.</h1>
         <p className="muted">
-          Kemahasiswaan, Eksternal, dan Berita memiliki daftar artikel serta
-          alur publikasi masing-masing.
+          Kelola artikel Berita dan alur publikasinya dari satu tempat.
         </p>
         {loading && (
           <p className="section-admin-loading" role="status">
@@ -84,58 +83,60 @@ export default function AdminDashboard() {
           </div>
         )}
         <div className="section-management-grid">
-          {articleSections.map((section) => {
-            const definition = sectionDefinitions[section];
-            return (
-              <article
-                className={`admin-card section-management-card section-page--${section}`}
-                key={section}
-                aria-labelledby={`manage-${section}`}
-                aria-busy={loading}
-              >
-                <div className="section-management-card-top">
-                  <span className="section-identity-icon">
-                    <Icon name={definition.icon} />
-                  </span>
-                  <span>HALAMAN {definition.label.toUpperCase()}</span>
-                </div>
-                <h2 id={`manage-${section}`}>{definition.label}</h2>
-                <p>{definition.managementDescription}</p>
-                <dl className="section-card-counts">
-                  <div className="section-card-total">
-                    <dt>Semua artikel</dt>
-                    <dd>{count(section)}</dd>
-                  </div>
-                  <div className="section-card-pending">
-                    <dt>Menunggu tinjauan</dt>
-                    <dd>{count(section, "pending")}</dd>
-                  </div>
-                  <div>
-                    <dt>Terbit</dt>
-                    <dd>{count(section, "published")}</dd>
-                  </div>
-                  <div>
-                    <dt>Nonaktif</dt>
-                    <dd>{count(section, "inactive")}</dd>
-                  </div>
-                </dl>
-                <Link
-                  className="btn btn-primary section-card-manage"
-                  href={`/admin/${section}`}
+          {articleSections
+            .filter((section) => section === "berita")
+            .map((section) => {
+              const definition = sectionDefinitions[section];
+              return (
+                <article
+                  className={`admin-card section-management-card section-page--${section}`}
+                  key={section}
+                  aria-labelledby={`manage-${section}`}
+                  aria-busy={loading}
                 >
-                  Kelola {definition.label}
-                  <Icon name="arrow" />
-                </Link>
-                <Link
-                  className="section-admin-public-link"
-                  href={`/${section}`}
-                >
-                  Lihat halaman publik
-                  <Icon name="arrow-up" />
-                </Link>
-              </article>
-            );
-          })}
+                  <div className="section-management-card-top">
+                    <span className="section-identity-icon">
+                      <Icon name={definition.icon} />
+                    </span>
+                    <span>HALAMAN {definition.label.toUpperCase()}</span>
+                  </div>
+                  <h2 id={`manage-${section}`}>{definition.label}</h2>
+                  <p>{definition.managementDescription}</p>
+                  <dl className="section-card-counts">
+                    <div className="section-card-total">
+                      <dt>Semua artikel</dt>
+                      <dd>{count(section)}</dd>
+                    </div>
+                    <div className="section-card-pending">
+                      <dt>Menunggu tinjauan</dt>
+                      <dd>{count(section, "pending")}</dd>
+                    </div>
+                    <div>
+                      <dt>Terbit</dt>
+                      <dd>{count(section, "published")}</dd>
+                    </div>
+                    <div>
+                      <dt>Nonaktif</dt>
+                      <dd>{count(section, "inactive")}</dd>
+                    </div>
+                  </dl>
+                  <Link
+                    className="btn btn-primary section-card-manage"
+                    href={`/admin/${section}`}
+                  >
+                    Kelola {definition.label}
+                    <Icon name="arrow" />
+                  </Link>
+                  <Link
+                    className="section-admin-public-link"
+                    href={`/${section}`}
+                  >
+                    Lihat halaman publik
+                    <Icon name="arrow-up" />
+                  </Link>
+                </article>
+              );
+            })}
         </div>
       </section>
     </AdminShell>

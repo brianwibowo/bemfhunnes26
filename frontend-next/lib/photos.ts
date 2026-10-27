@@ -155,8 +155,8 @@ export const galleryPhotos: CabinetPhoto[] = [
 // Replace this file when the revised organigram is ready; the layout stays the same.
 export const organigram = {
   src: "/images/kabinet/organigram.webp",
-  width: 678,
-  height: 884,
+  width: 1920,
+  height: 1080,
   alt: "Organigram BEM FH UNNES 2026: Presiden dan Wakil Presiden, Manajemen Internal Organisasi, Kantor Media Informasi, Sekretaris Kabinet, serta kementerian koordinator internal, sosial hukum dan politik, dan eksternal.",
   status: "Dalam penyempurnaan",
 };
