@@ -1,0 +1,252 @@
+{
+  "notes": "Source PNG artwork preserved byte-for-byte. Public WebP assets crop fully transparent outer pixels only, retain alpha and artwork, and are resized with Lanczos without upscaling. No logo source was supplied for Sekab, Biro Administrasi, or Biro Keuangan.",
+  "logos": [
+    {
+      "slug": "mio",
+      "sourceFile": "LOGO MIO.png",
+      "sourceWidth": 1080,
+      "sourceHeight": 1350,
+      "sourceBytes": 585978,
+      "sourceSha256": "9bcbabd1f8d54e17de01ed51f077f69f8b14fb825a37d2230f57c212e045048c",
+      "alphaCrop": [
+        87,
+        160,
+        991,
+        1098
+      ],
+      "publicPath": "/images/organisasi/mio.webp",
+      "width": 617,
+      "height": 640,
+      "bytes": 184688,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "kmi",
+      "sourceFile": "LOGO KMI.png",
+      "sourceWidth": 5321,
+      "sourceHeight": 5655,
+      "sourceBytes": 1953071,
+      "sourceSha256": "c2bd8b904515b70fb2755d5dd58e9d0e8fce2edc8fd493e37fafe15036ee9050",
+      "alphaCrop": [
+        0,
+        0,
+        5321,
+        5655
+      ],
+      "publicPath": "/images/organisasi/kmi.webp",
+      "width": 602,
+      "height": 640,
+      "bytes": 119004,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "menko-internal",
+      "sourceFile": "LOGO KEMENKOAN INTERNAL.png",
+      "sourceWidth": 1080,
+      "sourceHeight": 1350,
+      "sourceBytes": 1155953,
+      "sourceSha256": "a9d87e5cd943d9eac5f2be42f9a62a82899abd9663ac074d23586ee37483ca13",
+      "alphaCrop": [
+        43,
+        244,
+        1048,
+        1248
+      ],
+      "publicPath": "/images/organisasi/menko-internal.webp",
+      "width": 640,
+      "height": 639,
+      "bytes": 321344,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "menko-eksternal",
+      "sourceFile": "LOGO KEMENKOAN EKSTERNAL.png",
+      "sourceWidth": 1080,
+      "sourceHeight": 1350,
+      "sourceBytes": 1000764,
+      "sourceSha256": "12200600e74dd81aa4a637f7416a185cb8e5a0760237e2164b29fb12ddf811fe",
+      "alphaCrop": [
+        31,
+        150,
+        1049,
+        1090
+      ],
+      "publicPath": "/images/organisasi/menko-eksternal.webp",
+      "width": 640,
+      "height": 591,
+      "bytes": 292466,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "menko-soshumpol",
+      "sourceFile": "LOGO KEMENKOAN SOSHUMPOL.png",
+      "sourceWidth": 1080,
+      "sourceHeight": 1350,
+      "sourceBytes": 920704,
+      "sourceSha256": "7609a62ea09c70f3889e53c599fe9faab22bbe957f5ca7f7bb07170900181f2c",
+      "alphaCrop": [
+        0,
+        150,
+        1048,
+        1189
+      ],
+      "publicPath": "/images/organisasi/menko-soshumpol.webp",
+      "width": 640,
+      "height": 635,
+      "bytes": 282472,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "dagri",
+      "sourceFile": "LOGO DAGRI.png",
+      "sourceWidth": 1417,
+      "sourceHeight": 1889,
+      "sourceBytes": 587435,
+      "sourceSha256": "450cec9f66c8d5887ed862c2b9b85fb177fec7a10d276ee44037ce2ec5240088",
+      "alphaCrop": [
+        174,
+        410,
+        1243,
+        1479
+      ],
+      "publicPath": "/images/organisasi/dagri.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 132186,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "kpsdm",
+      "sourceFile": "LOGO KPSDM.png",
+      "sourceWidth": 2048,
+      "sourceHeight": 2048,
+      "sourceBytes": 1259236,
+      "sourceSha256": "efa126103452bd593805b2cac311a039012e32c49c49b7b56f9d10b8ef939165",
+      "alphaCrop": [
+        399,
+        379,
+        1650,
+        1786
+      ],
+      "publicPath": "/images/organisasi/kpsdm.webp",
+      "width": 569,
+      "height": 640,
+      "bytes": 202176,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "soraya",
+      "sourceFile": "LOGO SORAYA.png",
+      "sourceWidth": 574,
+      "sourceHeight": 557,
+      "sourceBytes": 111709,
+      "sourceSha256": "df5b22de923fa655767856e608def76b87be7f222069db235a2fd778c0f001f3",
+      "alphaCrop": [
+        3,
+        8,
+        551,
+        556
+      ],
+      "publicPath": "/images/organisasi/soraya.webp",
+      "width": 548,
+      "height": 548,
+      "bytes": 87004,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "hublu",
+      "sourceFile": "LOGO HUBLU.PNG",
+      "sourceWidth": 4167,
+      "sourceHeight": 4167,
+      "sourceBytes": 728261,
+      "sourceSha256": "f8eb92f4d13a3a25729993f6416eeb51ea91bc87e0bcda41a83b607a560cfe23",
+      "alphaCrop": [
+        462,
+        457,
+        3705,
+        3560
+      ],
+      "publicPath": "/images/organisasi/hublu.webp",
+      "width": 640,
+      "height": 612,
+      "bytes": 115786,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "ekraf",
+      "sourceFile": "LOGO EKRAF.png",
+      "sourceWidth": 1080,
+      "sourceHeight": 1350,
+      "sourceBytes": 429919,
+      "sourceSha256": "aa5a97847f400446b6663b1e5c83c67a38a67e3e31b25798f0b48377956f1946",
+      "alphaCrop": [
+        177,
+        255,
+        922,
+        1055
+      ],
+      "publicPath": "/images/organisasi/ekraf.webp",
+      "width": 596,
+      "height": 640,
+      "bytes": 160826,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "adkesma",
+      "sourceFile": "Logo Adkesma.PNG",
+      "sourceWidth": 1080,
+      "sourceHeight": 1920,
+      "sourceBytes": 1060140,
+      "sourceSha256": "f9f628b43a24e9e0abe059e7ffe463012d881a1b773bbea603e2d5fd891d16e5",
+      "alphaCrop": [
+        76,
+        448,
+        1012,
+        1385
+      ],
+      "publicPath": "/images/organisasi/adkesma.webp",
+      "width": 639,
+      "height": 640,
+      "bytes": 292358,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "kaspro",
+      "sourceFile": "LOGO KASPRO.PNG",
+      "sourceWidth": 3000,
+      "sourceHeight": 3000,
+      "sourceBytes": 3884289,
+      "sourceSha256": "ad2eaad166c8784ef132a3bb41f18ebbbcae2411c6e50365b47d8ff359bd3536",
+      "alphaCrop": [
+        100,
+        99,
+        2900,
+        2901
+      ],
+      "publicPath": "/images/organisasi/kaspro.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 166264,
+      "encoding": "WebP lossless, alpha preserved"
+    },
+    {
+      "slug": "sosmas",
+      "sourceFile": "LOGO SOSMAS.png",
+      "sourceWidth": 1417,
+      "sourceHeight": 1889,
+      "sourceBytes": 819889,
+      "sourceSha256": "7f312c19485fbd778ecec1855a5a7ef28d12961c0ecbfd4309bbb257512587ab",
+      "alphaCrop": [
+        138,
+        321,
+        1195,
+        1357
+      ],
+      "publicPath": "/images/organisasi/sosmas.webp",
+      "width": 640,
+      "height": 627,
+      "bytes": 197632,
+      "encoding": "WebP lossless, alpha preserved"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import SiteShell from "../../components/SiteShell";
-import { organigram } from "../../lib/photos";
+import OrganizationStructure from "../../components/organization/OrganizationStructure";
 
 export const metadata: Metadata = {
   title: "Profil Kabinet | BEM FH UNNES 2026",
@@ -152,18 +152,11 @@ export default function Profile() {
                 <h2 id="organigram-title">Struktur Organisasi</h2>
               </div>
               <p>
-                Bagan lengkap Kabinet Laksana Adhikara akan ditempatkan di sini
-                dan siap diperbarui saat susunan final tersedia.
+                Kenali setiap unit dalam kabinet. Pilih badan, biro, atau
+                kementerian untuk melihat profil, program kerja, dan agendanya.
               </p>
             </div>
-            <div className="profile-organigram-frame">
-              <Image
-                src={organigram.src}
-                width={organigram.width}
-                height={organigram.height}
-                alt={organigram.alt}
-              />
-            </div>
+            <OrganizationStructure />
           </div>
         </section>
       </div>

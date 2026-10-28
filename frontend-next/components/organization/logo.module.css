@@ -1,0 +1,31 @@
+.logo {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 236, 206, 0.26);
+  border-radius: 14px;
+  color: #722032;
+  background: #f8f3e9;
+}
+
+.logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.initials {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+  font-family: var(--font-legacy-display), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
