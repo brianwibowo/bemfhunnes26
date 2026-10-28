@@ -8,13 +8,21 @@ import "./inner-graphics.css";
 import "./cabinet-home.css";
 import "./cabinet-content.css";
 import "./service-home.css";
+import "./angular-theme.css";
+import "./angular-content.css";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 
-const jakarta = localFont({
-  src: "../node_modules/@fontsource-variable/plus-jakarta-sans/files/plus-jakarta-sans-latin-wght-normal.woff2",
-  variable: "--font-jakarta",
-  weight: "200 800",
+const legacyBody = localFont({
+  src: "../public/fonts/dm-sans-variable.ttf",
+  variable: "--font-legacy-body",
+  weight: "400 700",
+  display: "swap",
+});
+const legacyDisplay = localFont({
+  src: "../public/fonts/space-grotesk-variable.ttf",
+  variable: "--font-legacy-display",
+  weight: "400 700",
   display: "swap",
 });
 
@@ -28,7 +36,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="id" data-scroll-behavior="smooth">
-      <body className={jakarta.variable}>{children}</body>
+      <body className={`${legacyBody.variable} ${legacyDisplay.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
