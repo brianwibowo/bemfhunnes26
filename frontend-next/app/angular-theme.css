@@ -188,11 +188,18 @@ body {
   gap: 24px;
 }
 .portal-site .portal-brand {
-  gap: 11px;
+  gap: 9px;
   min-width: 0;
+  flex-shrink: 1;
 }
 .portal-site .portal-brand-logo {
   width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: none;
+}
+.portal-site .portal-brand-cabinet-logo {
+  width: 29px;
   height: 42px;
   object-fit: contain;
   flex: none;
@@ -891,8 +898,15 @@ body {
   }
 }
 @media (max-width: 480px) {
+  .portal-site .portal-brand {
+    gap: 7px;
+  }
   .portal-site .portal-brand-logo {
     width: 36px;
+    height: 36px;
+  }
+  .portal-site .portal-brand-cabinet-logo {
+    width: 25px;
     height: 36px;
   }
   .portal-site .portal-brand-type > strong {

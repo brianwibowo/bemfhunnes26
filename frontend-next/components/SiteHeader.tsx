@@ -52,6 +52,15 @@ export default function SiteHeader() {
           sizes="48px"
           priority
         />
+        <Image
+          src="/images/logo-kabinet-laksana-adhikara.webp"
+          width={33}
+          height={48}
+          alt=""
+          className="portal-brand-cabinet-logo"
+          sizes="(max-width: 480px) 25px, 29px"
+          priority
+        />
         <span className="portal-brand-type">
           <strong>BEM FH UNNES 2026</strong>
           <small>Kabinet Laksana Adhikara</small>
