@@ -27,13 +27,13 @@ export function ArticleCards({ articles }: { articles: Article[] }) {
         const href = `/${article.section}/${article.slug}`;
 
         return (
-          <article className="portal-article-card" key={article.id} data-reveal>
-            <Link
+          <article
+            className="portal-article-card card-clickable"
+            key={article.id}
+            data-reveal
+          >
+            <div
               className={`portal-article-media${article.imageUrl ? "" : " portal-article-media-empty"}`}
-              href={href}
-              aria-label={`Baca ${article.title}`}
-              tabIndex={-1}
-              data-pointer-label="Baca cerita"
             >
               {article.imageUrl ? (
                 <Image
@@ -68,7 +68,7 @@ export function ArticleCards({ articles }: { articles: Article[] }) {
               <span className="portal-article-media-arrow" aria-hidden="true">
                 ↗
               </span>
-            </Link>
+            </div>
 
             <div className="portal-article-copy">
               <div className="portal-article-meta">
@@ -81,14 +81,18 @@ export function ArticleCards({ articles }: { articles: Article[] }) {
                 <span>Kabar Laksana</span>
               </div>
               <h2>
-                <Link href={href} data-pointer-label="Baca">
+                <Link
+                  className="card-primary-link"
+                  href={href}
+                  data-pointer-label="Baca cerita"
+                >
                   {article.title}
                 </Link>
               </h2>
               <p>{article.description}</p>
-              <Link className="portal-text-link" href={href}>
+              <span className="portal-text-link" aria-hidden="true">
                 Baca selengkapnya <span aria-hidden="true">↗</span>
-              </Link>
+              </span>
             </div>
           </article>
         );

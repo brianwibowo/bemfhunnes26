@@ -199,6 +199,40 @@
   border-color: var(--line);
 }
 
+/* Native links cover the card; additional contact choices remain above them. */
+.portal-site .card-clickable {
+  position: relative;
+  isolation: isolate;
+}
+
+.portal-site .card-clickable .card-primary-link {
+  position: static;
+  z-index: auto;
+}
+
+.portal-site .card-clickable .card-primary-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.portal-site .card-clickable .card-primary-link:focus-visible {
+  outline: none;
+}
+
+.portal-site .card-clickable .card-secondary-link {
+  position: relative;
+  z-index: 3;
+}
+
+.portal-site .card-clickable:focus-within {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
 .portal-site .section-public-page .portal-breadcrumb,
 .portal-site .article-detail .portal-breadcrumb {
   margin-bottom: 30px;

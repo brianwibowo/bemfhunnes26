@@ -87,15 +87,24 @@ export default function Eksternal() {
             </div>
             <div className="adkesma-grid" data-reveal-group>
               {features.map(([title, text, contacts], i) => (
-                <article className="adkesma-card" key={title} data-reveal="pop">
+                <article
+                  className="adkesma-card card-clickable"
+                  key={title}
+                  data-reveal="pop"
+                >
                   <span className="service-card-number">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3>{title}</h3>
                   <p>{text}</p>
                   <div className="external-contacts">
-                    {contacts.map(([label, href]) => (
+                    {contacts.map(([label, href], contactIndex) => (
                       <a
+                        className={
+                          contactIndex === 0
+                            ? "card-primary-link"
+                            : "card-secondary-link"
+                        }
                         href={href}
                         target="_blank"
                         rel="noreferrer"

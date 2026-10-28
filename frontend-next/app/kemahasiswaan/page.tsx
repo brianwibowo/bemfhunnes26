@@ -100,14 +100,14 @@ export default function Kemahasiswaan() {
                 <h2>Temukan pintu bantuanmu.</h2>
               </div>
               <p>
-                Pilih fitur yang sesuai dengan kebutuhanmu. Setiap tombol akan
+                Pilih fitur yang sesuai dengan kebutuhanmu. Setiap kartu akan
                 mengarahkanmu ke kanal resmi pengelola.
               </p>
             </div>
             <div className="adkesma-grid" data-reveal-group>
               {features.map(([title, text, href, action], i) => (
                 <article
-                  className="adkesma-card"
+                  className="adkesma-card card-clickable"
                   id={title === "Lini Beasiswa" ? "beasiswa" : undefined}
                   key={title}
                   data-reveal="pop"
@@ -117,7 +117,12 @@ export default function Kemahasiswaan() {
                   </span>
                   <h3>{title}</h3>
                   <p>{text}</p>
-                  <a href={href} target="_blank" rel="noreferrer">
+                  <a
+                    className="card-primary-link"
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {action} <span aria-hidden="true">→</span>
                   </a>
                 </article>
