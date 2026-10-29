@@ -3,7 +3,7 @@ import { API_URL } from "./api";
 export const navigation = [
   { href: "/beranda", label: "Beranda" },
   { href: "/profil", label: "Profil" },
-  { href: "/kemahasiswaan", label: "Kemahasiswaan" },
+  { href: "/advokasi", label: "Advokasi" },
   { href: "/eksternal", label: "Eksternal" },
   { href: "/berita", label: "Berita" },
 ];

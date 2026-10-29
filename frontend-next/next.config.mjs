@@ -6,6 +6,15 @@ const api = apiOrigin ? new URL(apiOrigin) : null;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: "/kemahasiswaan",
+        destination: "/advokasi",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: api
       ? [

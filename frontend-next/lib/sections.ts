@@ -25,20 +25,20 @@ export function isArticleSection(value: string): value is ArticleSection {
 
 export const sectionDefinitions: Record<ArticleSection, SectionDefinition> = {
   kemahasiswaan: {
-    label: "Kemahasiswaan",
+    label: "Advokasi",
     icon: "people",
     eyebrow: "RUANG UNTUK MAHASISWA",
     tagline: "Tumbuh bersama, melangkah lebih jauh.",
     description:
       "Informasi beasiswa, kesempatan belajar, dan dukungan untuk menemani perjalanan mahasiswa Fakultas Hukum UNNES.",
-    listingTitle: "Informasi kemahasiswaan",
+    listingTitle: "Informasi advokasi",
     listingDescription:
       "Peluang, dukungan, dan kabar yang dekat dengan kebutuhanmu.",
     empty:
       "Informasi, peluang, dan dukungan untuk mahasiswa akan kami bagikan di halaman ini.",
-    managementLabel: "Pengelolaan Kemahasiswaan",
+    managementLabel: "Pengelolaan Advokasi",
     managementDescription:
-      "Kelola informasi beasiswa, kesempatan belajar, dan dukungan mahasiswa di halaman Kemahasiswaan.",
+      "Kelola informasi beasiswa, kesempatan belajar, dan dukungan mahasiswa di halaman Advokasi.",
   },
   eksternal: {
     label: "Eksternal",

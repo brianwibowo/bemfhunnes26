@@ -3,6 +3,7 @@
  * Seluruh 16 unit dan 117 rincian dipertahankan; hanya spasi dan pemisahan
  * judul/paragraf dirapikan. Atas arahan pemilik situs, dua agenda yang belum
  * memiliki uraian dilengkapi keterangan umum bertanda sementara.
+ * Nama SIAP mengikuti pembaruan pengelola pada 29 Oktober 2026.
  * Catatan perbedaan sumber: docs/organisasi-content-notes.md.
  */
 
@@ -839,7 +840,7 @@ export const organizationUnits: readonly OrganizationUnit[] = [
         title: "Program Kerja",
         items: [
           {
-            title: "SIAP (Sistem Informasi dan Aspirasi Pengaduan)",
+            title: "SIAP (Sistem Informasi Advokasi Pintar)",
             paragraphs: [
               "SIAP merupakan website yang digunakan sebagai sarana penyebaran informasi dan penghimpunan data terkait permasalahan kesejahteraan mahasiswa Fakultas Hukum UNNES. SIAP berfungsi sebagai pintu utama bagi mahasiswa untuk menyampaikan pengaduan serta memperoleh informasi mengenai berbagai permasalahan kemahasiswaan. Program ini bertujuan untuk meningkatkan kesejahteraan mahasiswa, meratakan akses informasi dan penyerapan aspirasi, serta meningkatkan efektivitas Kementerian Adkesma dalam menjembatani penyampaian informasi dan aspirasi mahasiswa."
             ]

@@ -20,7 +20,12 @@ export default function ArticleDetail({
   const [status, setStatus] = useState<DetailStatus>("loading");
   const [retry, setRetry] = useState(0);
   const validSection = Object.prototype.hasOwnProperty.call(labels, section);
-  const backHref = validSection ? `/${section}` : "/berita";
+  const backHref =
+    section === "kemahasiswaan"
+      ? "/advokasi"
+      : validSection
+        ? `/${section}`
+        : "/berita";
   const backLabel = validSection ? labels[section as ArticleSection] : "Berita";
 
   useEffect(() => {

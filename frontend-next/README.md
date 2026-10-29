@@ -10,7 +10,7 @@ Foto publik berada di `public/images/kabinet/`, seluruhnya WebP tanpa metadata E
 - Beranda memakai sebelas foto berbeda: foto kabinet utama, delapan dokumentasi carousel, foto ekspresi bersama untuk cerita kabinet, dan foto sinergi kementerian untuk kolaborasi. Galeri mencakup pengabdian, studi banding, rapat eksternal, aksi mahasiswa, tim kajian, donor darah, ekonomi kreatif, dan tim KPSDM. Carousel bergeser otomatis setiap 5 detik dan dapat digeser dengan sentuhan, tombol, atau keyboard.
 - Profil memakai dua foto tersendiri: foto studio untuk pengantar kabinet dan foto olahraga untuk cerita harmoni. Keduanya tidak muncul lagi di beranda atau sampul artikel.
 - Sembilan sampul artikel contoh mengikuti konteks rubriknya. Sebagian dokumentasi galeri juga dipakai untuk sampul rubrik yang sesuai; tiga sampul berita yang tampil di beranda tetap berbeda dari foto section lainnya di halaman yang sama.
-- `organigram.webp`: organigram sementara. Ganti file ini ketika revisi tersedia. Jika rasio/resolusi berubah, perbarui `width` dan `height` pada `organigram` di `lib/photos.ts`. Ubah juga `alt`, `status`, dan susunan teks di `app/profil/page.tsx` jika strukturnya berubah, lalu deploy ulang ke Vercel.
+- `organigram.webp`: organigram sementara, ditampilkan di Profil sebelum penjelasan dan pilihan unit. Gambar dapat dibuka dalam ukuran penuh. Ganti file ini ketika revisi tersedia. Jika rasio/resolusi berubah, perbarui `width` dan `height` pada `organigram` di `lib/photos.ts`. Ubah juga `alt`, `status`, dan susunan teks di `app/profil/page.tsx` jika strukturnya berubah, lalu deploy ulang ke Vercel.
 
 Pertahankan resolusi dan rasio sumber tanpa upscaling. Ukuran setiap foto dicatat di `lib/photos.ts`; mayoritas 1024 × 768, satu foto 899 × 768. Untuk tambahan foto, konversi ke WebP kualitas sekitar 80–85, beri nama deskriptif, dan isi teks alternatif. Hindari menyimpan duplikat foto dengan nama berbeda. Gunakan sumber organigram beresolusi lebih tinggi bila tersedia agar teks lebih tajam saat diperbesar.
 
@@ -32,7 +32,9 @@ Dekorasi merah marun dan emas memakai SVG asli di `GraphicAccent.tsx`, `graphic-
 
 Copywriting beranda dan profil mengacu pada `GDO_Galuh_Ulfa.md` sebagai referensi resmi yang diberikan pengelola, terutama halaman 2–3 dan 13–15. Rumusan visi dan empat misi disimpan di `lib/cabinet.ts` dengan pembetulan salah baca OCR; pengantar, judul ringkas, dan penjelasan nilai dipadatkan untuk web. Dua tajuk nilai yang hilang pada OCR memakai istilah deskriptif dari paragrafnya. Halaman 23–32 yang belum berhasil diekstrak tidak dijadikan sumber, dan tidak ada nama program atau capaian yang direka. Berkas referensi tetap di source, tidak disalin ke direktori publik.
 
-Kemahasiswaan, Eksternal, dan Berita adalah tiga halaman terpisah, bukan tab dalam satu daftar. Identitas dan copy setiap halaman berada di `lib/sections.ts`. Masing-masing daftar publik dan panel admin mempunyai filter, pagination, serta state permintaan sendiri. Akun admin tetap sama dan dapat membuka ketiga panel. Editor menolak membuka atau menyimpan artikel lewat panel rubrik yang berbeda.
+Advokasi (`/advokasi`), Eksternal, dan Berita adalah tiga halaman terpisah. Advokasi dan Eksternal memakai data statis; panel admin hanya mengelola Berita. Sembilan layanan Advokasi berada di `lib/advokasi.ts`, termasuk kontak Audiensi Galio Geld dan folder Advokabar. SIAP memakai kepanjangan **Sistem Informasi Advokasi Pintar**, termasuk di detail organisasi Adkesma.
+
+Alamat lama `/kemahasiswaan` diarahkan permanen ke `/advokasi` melalui `next.config.mjs`. Tautan Beasiswa pada Beranda memakai `/advokasi#beasiswa`. Identifier kategori API `kemahasiswaan` dan rute artikel lama tetap dipertahankan agar data backend dan tautan artikel terdahulu tetap kompatibel; label publiknya memakai Advokasi. Perubahan ini cukup dideploy pada frontend.
 
 ## Pembagian sampul artikel contoh
 

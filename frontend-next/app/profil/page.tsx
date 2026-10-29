@@ -2,6 +2,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import SiteShell from "../../components/SiteShell";
 import OrganizationStructure from "../../components/organization/OrganizationStructure";
+import { organigram } from "../../lib/photos";
+import styles from "./profile.module.css";
 
 export const metadata: Metadata = {
   title: "Profil Kabinet | BEM FH UNNES 2026",
@@ -151,11 +153,34 @@ export default function Profile() {
                 <p className="service-eyebrow">Orang-orang di balik gerak</p>
                 <h2 id="organigram-title">Struktur Organisasi</h2>
               </div>
-              <p>
-                Kenali setiap unit dalam kabinet. Pilih badan, biro, atau
-                kementerian untuk melihat profil, program kerja, dan agendanya.
-              </p>
             </div>
+            <figure className={`profile-organigram-frame ${styles.organigram}`}>
+              <a
+                className={styles.imageLink}
+                href={organigram.src}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Lihat bagan struktur organisasi ukuran penuh (tab baru)"
+              >
+                <Image
+                  src={organigram.src}
+                  width={organigram.width}
+                  height={organigram.height}
+                  alt={organigram.alt}
+                  sizes="(max-width: 760px) calc(100vw - 72px), (max-width: 1280px) calc(100vw - 140px), 1136px"
+                />
+              </a>
+              <figcaption className={styles.caption}>
+                <a href={organigram.src} target="_blank" rel="noreferrer">
+                  Lihat bagan ukuran penuh <span aria-hidden="true">↗</span>
+                </a>
+                <small>{organigram.status}</small>
+              </figcaption>
+            </figure>
+            <p className={styles.structureIntroduction}>
+              Kenali setiap unit dalam kabinet. Pilih badan, biro, atau
+              kementerian untuk melihat profil, program kerja, dan agendanya.
+            </p>
             <OrganizationStructure />
           </div>
         </section>

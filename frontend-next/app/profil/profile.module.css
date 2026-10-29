@@ -1,0 +1,35 @@
+.organigram {
+  min-width: 0;
+  margin: 0;
+}
+
+.imageLink {
+  display: block;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.caption a {
+  color: var(--gold);
+  text-underline-offset: 4px;
+}
+
+.caption small {
+  font-size: inherit;
+}
+
+.structureIntroduction {
+  max-width: 760px;
+  margin: 28px 0;
+  color: var(--muted);
+  line-height: 1.7;
+}

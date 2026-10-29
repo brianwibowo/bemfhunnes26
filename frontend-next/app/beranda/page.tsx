@@ -20,7 +20,7 @@ const services = [
   {
     title: "Beasiswa",
     text: "Informasi beasiswa dan kesempatan belajar untuk mahasiswa.",
-    href: "/kemahasiswaan#beasiswa",
+    href: "/advokasi#beasiswa",
     action: "Lihat peluang",
   },
 ];
