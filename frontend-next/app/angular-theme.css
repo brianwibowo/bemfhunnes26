@@ -422,8 +422,8 @@ body {
 .portal-site .service-home .service-card,
 .portal-site .service-home .service-card:nth-child(2),
 .portal-site .service-home .service-card:nth-child(3) {
-  min-height: 350px;
-  padding: 190px 22px 22px;
+  min-height: 0;
+  padding: 0;
   background: linear-gradient(
     145deg,
     rgba(71, 26, 21, 0.72),
@@ -435,21 +435,29 @@ body {
   box-shadow: 0 18px 60px #0003;
   backdrop-filter: blur(14px);
 }
-.portal-site .service-home .service-card::before {
-  inset: 0 0 auto;
-  width: auto;
-  height: 165px;
-  border: 0;
-  border-radius: 0;
-  background: linear-gradient(145deg, #ececff, #d9dcff);
-}
+.portal-site .service-home .service-card::before,
 .portal-site .service-home .service-card::after {
-  inset: 55px auto auto calc(50% - 25px);
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  background: linear-gradient(135deg, var(--red-bright), var(--gold));
-  box-shadow: 0 8px 20px #6e222c24;
+  content: none;
+}
+.portal-site .service-home .service-card-media {
+  position: relative;
+  flex: none;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #301713;
+}
+.portal-site .service-home .service-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.portal-site .service-home .service-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
 }
 .portal-site .service-home .service-card:hover {
   transform: translateY(-5px);
@@ -953,36 +961,4 @@ body {
   .portal-site .portal-button:hover {
     transform: none;
   }
-}
-
-/* Existing feature cards use decorative CSS glyphs; their text and links are unchanged. */
-.portal-site .service-home .service-card:nth-child(1)::after {
-  background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Crect%20x%3D%224%22%20y%3D%223%22%20width%3D%2216%22%20height%3D%2218%22%20rx%3D%222%22%2F%3E%3Cpath%20d%3D%22M8%207h8M8%2011h8M8%2015h3M8%2018h8%22%2F%3E%3C%2Fsvg%3E"),
-    linear-gradient(135deg, var(--red-bright), var(--gold));
-  background-size:
-    28px 28px,
-    100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.portal-site .service-home .service-card:nth-child(2)::after {
-  background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203v18M5%2021h14M4%207h16M6%207l-4%208h8L6%207Zm12%200-4%208h8l-4-8Z%22%2F%3E%3C%2Fsvg%3E"),
-    linear-gradient(135deg, var(--red-bright), var(--gold));
-  background-size:
-    28px 28px,
-    100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.portal-site .service-home .service-card:nth-child(3)::after {
-  background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22m2%208%2010-5%2010%205-10%205L2%208ZM6%2010v7c4%203%208%203%2012%200v-7M22%208v8%22%2F%3E%3C%2Fsvg%3E"),
-    linear-gradient(135deg, var(--red-bright), var(--gold));
-  background-size:
-    28px 28px,
-    100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
 }
